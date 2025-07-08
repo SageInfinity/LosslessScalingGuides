@@ -1,11 +1,12 @@
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import type { ThemeConfig } from '@docusaurus/types';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'Lossless Scaling Docs',
+  title: 'Lossless Scaling Guides',
   tagline: '',
   favicon: 'img/favicon.ico',
 
@@ -15,7 +16,7 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
+  url: 'https://losslessscalingguide.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -49,29 +50,69 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-
   themeConfig: {
+    colorMode: {
+      defaultMode: 'dark',
+      respectPrefersColorScheme: false,
+    },
     navbar: {
-      title: 'Lossless Scaling',
+      title: 'Home',
       logo: {
-        src: 'img/logo.png',
+        src: 'img/favicon.ico',
       },
       items: [      
         {
-          type: 'docSidebar',
-          sidebarId: 'docs',
+          type: 'doc',
+          docId: 'Guides/videoguides',
           position: 'left',
-          label: 'Docs',
-          to: '/docs/docs',
+          label: 'Video Guides',
+          overflow: 'visible',
+        },
+        {
+          type: 'doc',
+          docId: 'Guides/start',
+          position: 'left',
+          label: 'Guides',
+          overflow: 'visible',
+        },
+        {
+          type: 'doc',
+          docId: 'Guides/DualGPUGuide',
+          position: 'left',
+          label: 'DualGPU Guide',
+          overflow: 'visible',
+        },
+        {
+          type: 'doc',
+          docId: 'FAQ/scalers',
+          position: 'left',
+          label: 'FAQ',
+          overflow: 'visible',
+        },
+        {
+          type: 'doc',
+          docId: 'Graphs/graphs',
+          position: 'left',
+          label: 'Graphs',
+          overflow: 'visible',
+        },
+        {
+          position: 'right',
+          href: 'https://losslessscaling.com/',
+          className: 'header-website-link',
+          'aria-label': 'Official Website',
         },
       ],
     },
     footer: {
-      style: 'dark',
       links: [
         {
           title: 'Community',
           items: [
+            {
+              label: 'Offical Reddit',
+              href: 'https://www.reddit.com/r/losslessscaling/',
+            },
             {
               label: 'Offical Discord',
               href: 'https://discord.gg/tuwuNF3xSA',

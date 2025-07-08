@@ -1,0 +1,17 @@
+
+.container {
+  position: relative;
+}
+
+
+.homeBackground::before {
+  background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 100%) !important;
+  opacity: 0.8 !important;
+}
+
+
+.homeBackground::after {
+  background: 
+    radial-gradient(circle at 20% 35%, rgba(255, 186, 164, 0.3) 0%, transparent 25%),
+    radial-gradient(circle at 75% 44%, rgba(162, 210, 255, 0.3) 0%, transparent 25%) !important;
+}
