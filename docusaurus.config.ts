@@ -58,7 +58,7 @@ const config: Config = {
       respectPrefersColorScheme: false,
     },
     navbar: {
-      title: 'Home',
+      title: 'HOME',
       logo: {
         src: 'img/favicon.ico',
       },
