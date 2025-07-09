@@ -8,7 +8,7 @@ html:not([data-theme]) {
   /* Dark mode overlay */
   --docusaurus-bg-overlay-dark: rgba(0, 0, 0, 0.5);
   --ifm-font-size-base: 25px;
-
+  --ifm-font-color-base: white;
   z-index: -10;
   --ifm-link-color: blue;
 }
@@ -85,7 +85,6 @@ body::after {
   z-index: 10001;
   font-family: 'pixel2';
 }
-
 .sidebar {
   z-index: 10000 !important; /* Lower than navbar */
   margin-top: var(--ifm-navbar-height); /* Push sidebar below navbar */
@@ -211,22 +210,21 @@ body::after {
 .hero-banner {
   width: 100%;
   max-width: 600px;
-  margin-bottom: 4rem;
+  margin-bottom: 20rem;
 }
 
 /* Hero content (title) */
 .hero-content {
   text-align: center;
-  text-size-adjust: auto;
 }
 
 .hero-title {
   font-family: 'pixel1', sans-serif; /* Use your font */
   font-weight: 800;
-  font-size: 4rem;
+  font-size: 3.5rem;
   color: #ffffff;
   line-height: 1.5;
-}
+ }
 
 /* Desktop layout */
 @media (min-width: 999px) {
@@ -249,7 +247,7 @@ body::after {
   }
   
   .hero-title {
-    font-size: 4rem;
+    font-size: 5rem;
   }
 }
 /* Footer gradient overlay */
