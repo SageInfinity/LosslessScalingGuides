@@ -26,8 +26,10 @@ const config: Config = {
   //organizationName: 'facebook', // Usually your GitHub org/user name.
   projectName: 'SageInfinity.github.io',
   organizationName: 'SageInfinity',
+  deploymentBranch: 'deploy',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
+  trailingSlash: false,
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
