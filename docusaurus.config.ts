@@ -16,7 +16,7 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://sageinfinity.github.io',
+  url: 'https://SageInfinity.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -24,7 +24,7 @@ const config: Config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   //organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'sageinfinity.github.io',
+  projectName: 'SageInfinity.github.io',
   organizationName: 'SageInfinity',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
