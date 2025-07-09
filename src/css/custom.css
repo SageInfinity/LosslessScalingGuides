@@ -249,6 +249,7 @@ body::after {
 .footer {
   position: relative;
   background-image: url('/img/bg.png');
+  background-position: 10vh;
   background-repeat: repeat;
   background-attachment: fixed;
   backdrop-filter: blur(10px);
