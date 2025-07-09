@@ -3,7 +3,7 @@ html:not([data-theme]) {
 }
 :root {
   --docusaurus-bg-overlay-dark: rgba(0, 0, 0, 0.5);
-  --ifm-font-size-base: 25px;
+  --ifm-font-size-base: 20px;
 }
 
 body {
@@ -62,7 +62,7 @@ body::after {
   filter: blur(8px) brightness(1);
 }
 [data-theme='light'] body {
-  --ifm-link-color: rgb(255, 133, 2);
+  --ifm-link-color: rgb(255, 255, 255);
   font-weight: 500;
 }
 [data-theme='dark'] body {
@@ -195,7 +195,7 @@ body::after {
   background-image: url('/img/bg.png');
   background-repeat: repeat;
   background-attachment: fixed;
-   
+  background-position: 10vh;
 }
 
 /* Hero banner (image) */
