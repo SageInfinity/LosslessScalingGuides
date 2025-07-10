@@ -19,14 +19,13 @@ const config: Config = {
   url: 'https://sageinfinity.github.io/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/sageinfinity.github.io',
+  baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   //organizationName: 'facebook', // Usually your GitHub org/user name.
   projectName: 'sageinfinity.github.io',
-  organizationName: 'SageInfinity',
-  deploymentBranch: 'gh-pages',
+  organizationName: 'sageinfinity',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   trailingSlash: false,
