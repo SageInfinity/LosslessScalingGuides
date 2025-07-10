@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-Guides/dualgputroubleshoot" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.8.1">
+<title data-rh="true">Dual GPU Troubleshooting | Lossless Scaling Guides</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://sageinfinity.github.io/docs/Guides/dualgputroubleshoot"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Dual GPU Troubleshooting | Lossless Scaling Guides"><meta data-rh="true" name="description" content="Troubleshooting for issues in Dual GPU setup"><meta data-rh="true" property="og:description" content="Troubleshooting for issues in Dual GPU setup"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://sageinfinity.github.io/docs/Guides/dualgputroubleshoot"><link data-rh="true" rel="alternate" href="https://sageinfinity.github.io/docs/Guides/dualgputroubleshoot" hreflang="en"><link data-rh="true" rel="alternate" href="https://sageinfinity.github.io/docs/Guides/dualgputroubleshoot" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Dual GPU Troubleshooting","item":"https://sageinfinity.github.io/docs/Guides/dualgputroubleshoot"}]}</script><link rel="stylesheet" href="/assets/css/styles.1f5fa4f9.css">
+<script src="/assets/js/runtime~main.88409285.js" defer="defer"></script>
+<script src="/assets/js/main.56c11940.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t="dark";var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",e||t),document.documentElement.setAttribute("data-theme-choice",e||t)}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/favicon.ico"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/favicon.ico" alt="" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/favicon.ico" alt="" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">HOME</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" overflow="visible" href="/docs/Guides/videoguides">Video Guides</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" overflow="visible" href="/docs/Guides/start">Guides</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" overflow="visible" href="/docs/Guides/DualGPUGuide">DualGPU Guide</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" overflow="visible" href="/docs/FAQ/scalers">FAQ</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" overflow="visible" href="/docs/Graphs">Graphs</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://losslessscaling.com/" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link header-website-link" aria-label="Official Website"></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="main-content-wrapper"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/FAQ/scalers">FAQ</a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/Graphs">Graphs</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/Guides/start">Guides</a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Guides/start">Getting Started</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Guides/LS settings Info">LS settings Info</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Guides/bestsettings">Best Settings for LS</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Guides/rtss">Cap base fps with RTSS</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Guides/autolaunch">Auto Launch LS to Tray</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Guides/DualGPUGuide">Official Dual GPU Guide/Overview</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/Guides/dualgputroubleshoot">Dual GPU Troubleshooting</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Guides/PCIe Guide">PCIe Guide</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Guides/beta">Rollback to older versions</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Guides/customoverlays">Custom Overlays - FPS counters for LSFG</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Guides/reshade">Reshade with LS</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Guides/videoguides">Video Guides for Lossless Scaling</a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Guides</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Dual GPU Troubleshooting</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Dual GPU Troubleshooting</h1></header><blockquote>
+<p><strong>If you encounter any issues, the first thing you should do is restart your PC. Consult to the <a href="https://discord.com/channels/1042475930217631784/1344492964298358835" target="_blank" rel="noopener noreferrer">dual-gpu-testing channel</a> in the Lossless Scaling Discord server or the subReddit for public help if these don&#x27;t help.</strong></p>
+</blockquote>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="troubleshooting">Troubleshooting<a href="#troubleshooting" class="hash-link" aria-label="Direct link to Troubleshooting" title="Direct link to Troubleshooting">​</a></h2>
+<ol>
+<li>Problem: Framerate is significantly worse when outputting video from the second GPU, even without LSFG.</li>
+</ol>
+<ul>
+<li>Solution: Check that your GPU is in a PCIe slot that can handle your desired resolution and framerate as mentioned in system requirements. A good way to check PCIe specs is with <a href="https://www.techpowerup.com/gpuz/" target="_blank" rel="noopener noreferrer">Techpowerup&#x27;s GPU-Z</a>. High secondary GPU usage percentage and low wattage without LSFG enabled are a good indicator of a PCIe bandwidth bottleneck. If your PCIe specs appear to be sufficient for your use case, remove and changes to either GPU&#x27;s power curve, including undervolts and overclocks. Multiple users have experienced this issue, all cases involving an undervolt on an Nvidia GPU being used for either render or secondary. Slight instability has been shown to limit frames transferred between GPUs, though it&#x27;s not known exactly why this happens.
+Beyond this, causes of this issue aren&#x27;t well known. Try uninstalling all GPU drivers with DDU (Display Driver Uninstaller) in Windows safe mode and reinstall them. If that doesn&#x27;t work, try another Windows installation.</li>
+</ul>
+<ol start="2">
+<li>Problem: Framerate is significantly worse when enabling LSFG with a dual GPU setup.</li>
+</ol>
+<ul>
+<li>Solution: First, check if your secondary GPU is reaching high load. One of the best tools for this is <a href="https://www.msi.com/Landing/afterburner/graphics-cards" target="_blank" rel="noopener noreferrer">RTSS (RivaTuner Statistics Server) with MSI Afterburner</a>. Also try lowering LSFG&#x27;s Flow scale to the minimum and using a fixed X2 multiplier to rule out the secondary GPU being at high load. If it&#x27;s not at high load and the issue occurs, here&#x27;s a couple things you can do:
+-Reset driver settings such as Nvidia Control Panel, the Nvidia app, AMD Software: Adrenalin Edition, and Intel Graphics Software to factory defaults.</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="alt-text" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlIAAAAjCAMAAABo4BQMAAABEVBMVEVZAACSxzX9/f3CwsLAhWMAAGPs7OzA7rG51OnS5ve5z5QAAACwzH+f7vmfX2MAeNQ0j9R7ugufXwDgzYsritSOwTWBvRng7vnI1LMMfdR9NAB+uxG4zo/H1LKSwj7L1bl+uun////A7vlws+Y0jtT5+fkvgsF4uQTa2tqlyGZ9zfmYxEqLwC7F06y51Ojg7tV2uQBfoQCgx17l5eViogTz8/PAhTgyAADR18cAADicxVPW2NELb74yhdVwsua90JwAa77+/v6HviUngMRZqvmoyW7U2M2TwkB+uuiv1G3A0aKzzYYANIvS5/fLy8sAX7HgqmNWlgOjx2K9wbbg7rHV5Lmvy31ws+cAbL8MftSsy3b1f8euAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACTklEQVR42u3ba1OCQBQGYLqbVkaKWFbYFSotK1PLzDKzq0llFvz/H9KyC1ONq+M0DRS87yeE/eYz55xdVNhAXMzh0dHwoLn4cVY8jYCvGaRACqRAyuuE4kbU7ayHQMrHooy3puxymun5EEj5NrNp2YOsxUHKt4k2vSA1OQ9S/iUle5IoSIEUSIEUSIHUnyTVFiIkY9OcBxWQAik+qXGNpCSqVnK53H63nL2FblMgBVJ9SJU7mUxVqV5TVRxScqxYASmQGpxUOGGW7nZqkhK2SlW+J6kC64A66YQPEwLrh+RepEKXFeyPnCYJUgEjdSsu3dcOFrVFMZsU+aT0SJ2IOt6W5x5WY0VyPTPNHlj3LG9k5HI+kiUgFXBSQ1JDvWuonSsxGeZXqbbQsq+IJ52w+XxAIY3ZwJwlIBVwUq9qdUsqq2oi2VG3TDHfveOjiCiVtlCPFWkZ+sKHIHP6I1sCUkGfpcyU8lwz77PLqbBWPumuUrFiS2YjFB2crPGpxUjpDjanP9pLQCroOz4zNaVIiZrZKJkpXuPTI98b2t6CXZd4VQo7PpAa1zTlIKMo1StJ7bHjmyPj+ddTA6cu8WYpkAKpxxGSl30nTxxS9KzT2s7Jo9uFOkXEdnafOz6KyV4CUngh0++FTIWVJYLFGqKsQwQ2r5PB/du5FF3OloAUSOG1MUh5T4ru7UAKpFClQAqkQOqfxfDmt+cg5d/E17wgdbMOUr7NrpF2/398Z8YuSPnY1Ob7ucs5veSJAinktwNSCEiBFEiBFEiBFAJS/fIBrmwcauVqRMAAAAAASUVORK5CYII=" width="594" height="35" class="img_ev3q"></p>
+<ul>
+<li>Disable/enable any low latency mode and Vsync driver and game settings.</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="alt-text" src="data:image/png;base64,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" width="708" height="48" class="img_ev3q"></p>
+<ul>
+<li>Uninstall all GPU drivers with DDU (Display Driver Uninstaller) in Windows safe mode and reinstall them.</li>
+<li>Try another Windows installation (preferably in a test drive).</li>
+</ul>
+<ol start="3">
+<li>Problem: The game fails to launch when the display is connected to the secondary GPU and/or runs into an error code such as getadapterinfo (Common in Path of Exile 2 and a few others)</li>
+</ol>
+<ul>
+<li>Solution: Set the game to run on a specific GPU (that being the desired render GPU) in Windows graphics settings. This can only be done on Windows 11 24H2.</li>
+</ul>
+<ol start="4">
+<li>Problem: The game fails to launch and/or runs into an error code such as getadapterinfo(Common in Path of Exile 2 and a few others), Graphics Driver issue-RTX (Common in Cyberpunk), etc, when the secondary GPU is active and working, irrespective of the connection to the monitors.</li>
+</ol>
+<ul>
+<li>Solution: Disable the secondary GPU in device manager, launch the game on the primary GPU only. After succesful boot up of the game, turn on the secondary GPU and scale with LS.</li>
+</ul>
+<p>And if it still is not working then try the forcing methods mentioned ahead....</p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="launch-optionsarguments-method-for-forcing-a-gpu-as-render-gpu-">Launch-options/arguments method for forcing a GPU as render GPU :<a href="#launch-optionsarguments-method-for-forcing-a-gpu-as-render-gpu-" class="hash-link" aria-label="Direct link to Launch-options/arguments method for forcing a GPU as render GPU :" title="Direct link to Launch-options/arguments method for forcing a GPU as render GPU :">​</a></h2>
+<p>These are the launch argumets that have been proven to help forcing a GPU as render GPU for games :</p>
+<ul>
+<li><code>-graphicsadapter=X</code> <em>(Unreal Engine/some engines)</em></li>
+<li><code>-force-device-index X</code> <em>(Unity Engine)</em></li>
+<li><code>+r_physicalDeviceIndex X</code> <em>(id Tech engines; may require</em> <code>+com_skipIntroVideo 1</code><em>)</em></li>
+</ul>
+<blockquote>
+<p><strong>ABOUT X VALUES:</strong></p>
+</blockquote>
+<ul>
+<li>Typically <code>0</code>, <code>1</code>, or <code>2</code> <em>(GPU number)</em></li>
+<li>Try all values if unsure</li>
+<li>This numbering <strong>does not always match</strong> Task Manager’s GPU index</li>
+</ul>
+<blockquote>
+<p><strong>EXAMPLE COMMANDS:</strong><br>
+<!-- -->-graphicsadapter=0<br>
+<!-- -->-force-device-index 0<br>
+<!-- -->&quot;+com_skipIntroVideo 1 +r_physicalDeviceIndex 0&quot;</p>
+</blockquote>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="usage-instructions"><strong>Usage Instructions:</strong><a href="#usage-instructions" class="hash-link" aria-label="Direct link to usage-instructions" title="Direct link to usage-instructions">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="steam-games"><strong>STEAM GAMES:</strong><a href="#steam-games" class="hash-link" aria-label="Direct link to steam-games" title="Direct link to steam-games">​</a></h4>
+<ol>
+<li>Right-click the game → <strong>Properties</strong></li>
+<li>Enter the argument in the <strong>&quot;Launch Options&quot;</strong> field</li>
+</ol>
+<p><img decoding="async" loading="lazy" alt="alt-text" src="/assets/images/la1-9a118b1ce55da662df52bb700b770a2a.png" width="1044" height="742" class="img_ev3q"></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="non-steam-games"><strong>NON-STEAM GAMES:</strong><a href="#non-steam-games" class="hash-link" aria-label="Direct link to non-steam-games" title="Direct link to non-steam-games">​</a></h4>
+<ul>
+<li>
+<p><strong>OPTION A (Via Steam):</strong></p>
+<ol>
+<li>Add the game to your Steam library</li>
+<li>Set the launch option as described above</li>
+</ol>
+</li>
+<li>
+<p><strong>OPTION B (Shortcut):</strong></p>
+<ol>
+<li>Right-click the game shortcut → <strong>Properties</strong></li>
+</ol>
+<p><img decoding="async" loading="lazy" alt="alt-text" src="/assets/images/la2-a1584b459991c10b8591a38abe5ab54a.png" width="432" height="603" class="img_ev3q"></p>
+<ol start="2">
+<li>
+<p>Append the argument to the <strong>&quot;Target&quot;</strong> field with a space:</p>
+<ul>
+<li>Example: <code>&quot;game.exe&quot; -graphicsadapter=0</code></li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="alt-text" src="/assets/images/la3-ec568c42195e3980ce6fe1082f151bb0.png" width="533" height="691" class="img_ev3q">
+<img decoding="async" loading="lazy" alt="alt-text" src="/assets/images/la4-0e871d49079c93a5aa9a1b692bac4def.png" width="268" height="142" class="img_ev3q"></p>
+</li>
+<li>
+<p>Always launch via this shortcut</p>
+</li>
+</ol>
+</li>
+</ul>
+<p><strong>NOTES:</strong></p>
+<ul>
+<li>Some stubborn cases (e.g., <em>Battlefield 2042, Minecraft, Cyberpunk on some systems</em>) may not work with this method.</li>
+<li>No reliable &#x27;software workaround&#x27; exists for these exceptions. These can be tackled through the phyical workarounds give further ahead....</li>
+</ul>
+<p>Here’s your corrected and well-organized version with minimal changes for clarity and consistency:</p>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="physical-methods-for-forcing-a-gpu-as-render-gpu-">Physical methods for forcing a GPU as render GPU :<a href="#physical-methods-for-forcing-a-gpu-as-render-gpu-" class="hash-link" aria-label="Direct link to Physical methods for forcing a GPU as render GPU :" title="Direct link to Physical methods for forcing a GPU as render GPU :">​</a></h2>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="cable-switch-method">Cable Switch Method:<a href="#cable-switch-method" class="hash-link" aria-label="Direct link to Cable Switch Method:" title="Direct link to Cable Switch Method:">​</a></h4>
+<ul>
+<li>Connect the monitor to the <strong>render GPU</strong>.</li>
+<li>Launch the game.</li>
+<li>Reconnect to the <strong>secondary GPU for LSFG</strong>.</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="dual-cable-method">Dual-Cable Method:<a href="#dual-cable-method" class="hash-link" aria-label="Direct link to Dual-Cable Method:" title="Direct link to Dual-Cable Method:">​</a></h4>
+<ul>
+<li>Connect <strong>one monitor to both GPUs</strong>.  OR if you have two monitors, then connect one GPU to each monitor/display.</li>
+<li>Launch the game when the display is through the port connected to <strong>render GPU</strong>.</li>
+<li><strong>FOR SINGLE MONITOR -</strong> After successful boot of the game, switch the display to the port connected to <strong>secondary GPU</strong>.</li>
+<li><strong>FOR DUAL MONITOR -</strong> After following the first two steps as mentioned above... move the window using win+tab key (TaskView) to the <strong>secondary GPU</strong>.</li>
+<li>Scale the game with LS.</li>
+</ul>
+<blockquote>
+<p><em>This works for majority of games however there are some more stubborn games that don&#x27;t work, for which the next method can be used.....</em></p>
+</blockquote>
+<hr>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="headed-render-gpu-problem-">Headed render GPU problem :<a href="#headed-render-gpu-problem-" class="hash-link" aria-label="Direct link to Headed render GPU problem :" title="Direct link to Headed render GPU problem :">​</a></h3>
+<ul>
+<li><strong>Occurs in some GPU/application combos</strong> (e.g., dual Intel setups, or nvidia as secondary. etc —but no reliable way to predict).</li>
+<li><strong>Why It Happens:</strong>
+<ul>
+<li>Some applications need an  <strong>active physical display target</strong> to output rendred frames.</li>
+<li>GPU drivers <strong>require display properties info</strong> (resolution, refresh rate). Which causes conflicts (When Using a &quot;Headless&quot; Render GPU—No Display Connected) :<!-- -->
+<ul>
+<li>Application may <strong>fail to launch</strong> or crash on loading screens.</li>
+<li><strong>Degraded performance</strong> or low FPS.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>EXCLUSIVE FULLSCREEN :</strong>
+Since Lossless Scaling (LS) <strong>cannot overlay</strong> in true exclusive fullscreen, the following methods can also be used to bypass this limitation.</p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="method-1-dual-monitor--dual-instance-setup">METHOD 1: Dual-Monitor / Dual-Instance Setup<a href="#method-1-dual-monitor--dual-instance-setup" class="hash-link" aria-label="Direct link to METHOD 1: Dual-Monitor / Dual-Instance Setup" title="Direct link to METHOD 1: Dual-Monitor / Dual-Instance Setup">​</a></h4>
+<ul>
+<li><strong>Concept:</strong> Physically separate <strong>rendering</strong> and <strong>output</strong>.</li>
+<li><strong>Hardware Setup:</strong><br>
+<!-- -->→ <strong>Monitor A:</strong> Connected to <strong>Render GPU</strong>.<br>
+<!-- -->→ <strong>Monitor B:</strong> Connected to <strong>Secondary (LSFG) GPU</strong>.</li>
+<li><strong>Workflow:</strong>
+<ol>
+<li>Game runs on <strong>Monitor A (Render GPU)</strong>.</li>
+<li>Lossless Scaling captures <strong>Monitor A</strong>.</li>
+<li>LS outputs <strong>frame-generated version</strong> to <strong>Monitor B</strong>.</li>
+</ol>
+</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="method-2-headless-rendering-with-dummy-plug-or-kvm-switch">METHOD 2: &quot;Headless&quot; Rendering with Dummy Plug OR KVM Switch<a href="#method-2-headless-rendering-with-dummy-plug-or-kvm-switch" class="hash-link" aria-label="Direct link to METHOD 2: &quot;Headless&quot; Rendering with Dummy Plug OR KVM Switch" title="Direct link to METHOD 2: &quot;Headless&quot; Rendering with Dummy Plug OR KVM Switch">​</a></h4>
+<ul>
+<li>
+<p>Similar to above method, but there is only a single instance of game visible. And only one monitor is required.</p>
+</li>
+<li>
+<p><strong>FOR KVM Switch -</strong> Connect both the GPU to the KVM switch input and the switch outputs to one monitor. Then, while on the display connected to the render GPU, the game is launched and booted up. Then the display is switched to the other input (secondary GPU) and then can be scaled with LS.</p>
+</li>
+<li>
+<p><strong>FOR Dummy Plug -</strong> It is necessary for the Auto Scale to be working for the game. In which case, the Dummy plug is connected to the render GPU and the game is booted up. The monitor is connected to secondary GPU and LS Auto Scales the game. (Unlike the method earlier using the Dummy Plug, the game instance is not shifted from the <strong>ghost</strong> display of the Dummy Plug to the other Monitor... since it crashes anyway, in certain scenarios)</p>
+</li>
+</ul>
+<blockquote>
+<p><em>Credits - Ravenger, Flexi &amp; Sage</em></p>
+</blockquote></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/Guides/DualGPUGuide"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Official Dual GPU Guide/Overview</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/Guides/PCIe Guide"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">PCIe Guide</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#troubleshooting" class="table-of-contents__link toc-highlight">Troubleshooting</a></li><li><a href="#launch-optionsarguments-method-for-forcing-a-gpu-as-render-gpu-" class="table-of-contents__link toc-highlight">Launch-options/arguments method for forcing a GPU as render GPU :</a><ul><li><a href="#usage-instructions" class="table-of-contents__link toc-highlight"><strong>Usage Instructions:</strong></a></li></ul></li><li><a href="#physical-methods-for-forcing-a-gpu-as-render-gpu-" class="table-of-contents__link toc-highlight">Physical methods for forcing a GPU as render GPU :</a><ul><li><a href="#headed-render-gpu-problem-" class="table-of-contents__link toc-highlight">Headed render GPU problem :</a></li></ul></li></ul></div></div></div></div></main></div></div></div></div><footer class="theme-layout-footer footer"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.reddit.com/r/losslessscaling/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Offical Reddit<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://discord.gg/tuwuNF3xSA" target="_blank" rel="noopener noreferrer" class="footer__link-item">Offical Discord<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://steamcommunity.com/app/993090/discussions/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Official Steam Community<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div></div></footer></div>
+</body>
+</html>

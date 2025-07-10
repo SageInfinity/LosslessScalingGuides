@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-Guides/customoverlays" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.8.1">
+<title data-rh="true">Custom Overlays - FPS counters for LSFG | Lossless Scaling Guides</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://sageinfinity.github.io/docs/Guides/customoverlays"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Custom Overlays - FPS counters for LSFG | Lossless Scaling Guides"><meta data-rh="true" name="description" content="Guides for setting up custom overlays for LS"><meta data-rh="true" property="og:description" content="Guides for setting up custom overlays for LS"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://sageinfinity.github.io/docs/Guides/customoverlays"><link data-rh="true" rel="alternate" href="https://sageinfinity.github.io/docs/Guides/customoverlays" hreflang="en"><link data-rh="true" rel="alternate" href="https://sageinfinity.github.io/docs/Guides/customoverlays" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Custom Overlays - FPS counters for LSFG","item":"https://sageinfinity.github.io/docs/Guides/customoverlays"}]}</script><link rel="stylesheet" href="/assets/css/styles.1f5fa4f9.css">
+<script src="/assets/js/runtime~main.88409285.js" defer="defer"></script>
+<script src="/assets/js/main.56c11940.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t="dark";var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",e||t),document.documentElement.setAttribute("data-theme-choice",e||t)}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/favicon.ico"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/favicon.ico" alt="" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/favicon.ico" alt="" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">HOME</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" overflow="visible" href="/docs/Guides/videoguides">Video Guides</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" overflow="visible" href="/docs/Guides/start">Guides</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" overflow="visible" href="/docs/Guides/DualGPUGuide">DualGPU Guide</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" overflow="visible" href="/docs/FAQ/scalers">FAQ</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" overflow="visible" href="/docs/Graphs">Graphs</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://losslessscaling.com/" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link header-website-link" aria-label="Official Website"></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="main-content-wrapper"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/FAQ/scalers">FAQ</a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/Graphs">Graphs</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/Guides/start">Guides</a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Guides/start">Getting Started</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Guides/LS settings Info">LS settings Info</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Guides/bestsettings">Best Settings for LS</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Guides/rtss">Cap base fps with RTSS</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Guides/autolaunch">Auto Launch LS to Tray</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Guides/DualGPUGuide">Official Dual GPU Guide/Overview</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Guides/dualgputroubleshoot">Dual GPU Troubleshooting</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Guides/PCIe Guide">PCIe Guide</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Guides/beta">Rollback to older versions</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/Guides/customoverlays">Custom Overlays - FPS counters for LSFG</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Guides/reshade">Reshade with LS</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/Guides/videoguides">Video Guides for Lossless Scaling</a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Guides</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Custom Overlays - FPS counters for LSFG</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Custom Overlays - FPS counters for LSFG</h1></header><hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="guide-1---by-zifugg">Guide 1 - by ZifuGG<a href="#guide-1---by-zifugg" class="hash-link" aria-label="Direct link to Guide 1 - by ZifuGG" title="Direct link to Guide 1 - by ZifuGG">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="step-1-install-rivatuner-statistics-server">Step 1: Install Rivatuner Statistics Server<a href="#step-1-install-rivatuner-statistics-server" class="hash-link" aria-label="Direct link to Step 1: Install Rivatuner Statistics Server" title="Direct link to Step 1: Install Rivatuner Statistics Server">​</a></h3>
+<p><strong>Download Link:</strong> <a href="https://www.guru3d.com/download/rtss-rivatuner-statistics-server-download/" target="_blank" rel="noopener noreferrer">RTSS</a></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="step-2-download-the-overlay-theme-you-want">Step 2: Download the Overlay theme you want<a href="#step-2-download-the-overlay-theme-you-want" class="hash-link" aria-label="Direct link to Step 2: Download the Overlay theme you want" title="Direct link to Step 2: Download the Overlay theme you want">​</a></h3>
+<ol>
+<li><a href="https://drive.google.com/uc?export=download&amp;id=1dmYuLv2T33FQP3esDZ0y5Q9WWC-AMIrc" target="_blank" rel="noopener noreferrer">LS Compact Dark</a></li>
+</ol>
+<p><img decoding="async" loading="lazy" alt="alt-text" src="/assets/images/o2-addc253c8c04a266cb1790241763e3f6.png" width="268" height="236" class="img_ev3q"></p>
+<ol start="2">
+<li><a href="https://drive.google.com/uc?export=download&amp;id=1SeguO8kg8-t3vGbt5QmGnwSRpn15EFaA" target="_blank" rel="noopener noreferrer">LS Standard Dark</a></li>
+</ol>
+<p><img decoding="async" loading="lazy" alt="alt-text" src="/assets/images/o3-0a5ed7e2389de22f6831f9e0fdeeb597.png" width="680" height="223" class="img_ev3q"></p>
+<ol start="3">
+<li><a href="https://drive.google.com/uc?export=download&amp;id=1q8KgOhROCTNkk5xt7YXU2-IJoPAeGhWx" target="_blank" rel="noopener noreferrer">AMD Logo Standard Dark</a></li>
+</ol>
+<p><img decoding="async" loading="lazy" alt="alt-text" src="/assets/images/o4-79eb025165fe6ee0ddedd88d2c069baa.png" width="765" height="251" class="img_ev3q"></p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="step-3-download-and-install-this-font-file">Step 3: Download and install this font file<a href="#step-3-download-and-install-this-font-file" class="hash-link" aria-label="Direct link to Step 3: Download and install this font file" title="Direct link to Step 3: Download and install this font file">​</a></h3>
+<ul>
+<li><strong>Font:</strong> <a href="https://drive.google.com/uc?export=download&amp;id=1d9thitVnrovmlXxHP4GhF5HFUsHK3NnH" target="_blank" rel="noopener noreferrer">Montserrat</a><br>
+<img decoding="async" loading="lazy" alt="alt-text" src="data:image/png;base64,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" width="370" height="232" class="img_ev3q"></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="step-4-follow-the-steps-in-the-video">Step 4: Follow the steps in the video<a href="#step-4-follow-the-steps-in-the-video" class="hash-link" aria-label="Direct link to Step 4: Follow the steps in the video" title="Direct link to Step 4: Follow the steps in the video">​</a></h3>
+<ul>
+<li><strong>Video Guide:</strong> <a href="#">Video Guide by ZifuGG</a></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="directory-for-rivatuner-ovx-file">Directory for Rivatuner .ovx file<a href="#directory-for-rivatuner-ovx-file" class="hash-link" aria-label="Direct link to Directory for Rivatuner .ovx file" title="Direct link to Directory for Rivatuner .ovx file">​</a></h3>
+<p>&#x27;C:\Program Files (x86)\RivaTuner Statistics Server\Plugins\Client\Overlays&#x27;</p>
+<p>Lossless Scaling FPS Counter Configuration</p>
+<p>[fps_counter]</p>
+<ul>
+<li>scale = 2.0</li>
+<li>color = 0xfff000</li>
+<li>font = Impact</li>
+<li>offset_x = 150</li>
+<li>offset_y = 145</li>
+<li>show_captured = 0</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="guide-2---by-alpcan">Guide 2 - by Alpcan<a href="#guide-2---by-alpcan" class="hash-link" aria-label="Direct link to Guide 2 - by Alpcan" title="Direct link to Guide 2 - by Alpcan">​</a></h2>
+<p><strong>Important Note:</strong><br>
+<!-- -->WORKS WITH DXGI CAPTURE API ONLY AND DOES NOT REQUIRE LS OVERLAY TO WORK</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="prerequisites">Prerequisites:<a href="#prerequisites" class="hash-link" aria-label="Direct link to Prerequisites:" title="Direct link to Prerequisites:">​</a></h3>
+<ol>
+<li>Install <strong><a href="https://drive.google.com/uc?export=download&amp;id=1d9thitVnrovmlXxHP4GhF5HFUsHK3NnH" target="_blank" rel="noopener noreferrer">Montserrat</a></strong> font</li>
+<li>In RTSS interface:<!-- -->
+<ul>
+<li>Set <strong>On Screen Display Rendering Mode</strong> to <strong>Raster 3D</strong></li>
+<li>Change font to:<!-- -->
+<ul>
+<li>Font: Montserrat</li>
+<li>Weight: Extra Bold</li>
+<li>Size: 7</li>
+</ul>
+</li>
+<li><em>Note:</em> Apply to all profiles separately if needed</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="installation-steps">Installation Steps:<a href="#installation-steps" class="hash-link" aria-label="Direct link to Installation Steps:" title="Direct link to Installation Steps:">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="step-1-install-autohotkey">Step 1: Install AutoHotkey<a href="#step-1-install-autohotkey" class="hash-link" aria-label="Direct link to Step 1: Install AutoHotkey" title="Direct link to Step 1: Install AutoHotkey">​</a></h4>
+<ul>
+<li>Download from: <a href="https://www.autohotkey.com/" target="_blank" rel="noopener noreferrer">AutoHotkey</a></li>
+<li>Install the latest version (required to open AHK scripts)</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="step-2-copy-overlay-files">Step 2: Copy Overlay Files<a href="#step-2-copy-overlay-files" class="hash-link" aria-label="Direct link to Step 2: Copy Overlay Files" title="Direct link to Step 2: Copy Overlay Files">​</a></h4>
+<ol>
+<li>
+<p>Download files (OVL and PNG from Guide 1)</p>
+</li>
+<li>
+<p>Copy to:</p>
+<p>C:\Program Files (x86)\RivaTuner Statistics Server\Plugins\Client\Overlays</p>
+<ul>
+<li>Overwrite if <code>presentmon_custom.ovl</code> exists</li>
+</ul>
+</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="step-3-configure-overlay">Step 3: Configure Overlay<a href="#step-3-configure-overlay" class="hash-link" aria-label="Direct link to Step 3: Configure Overlay" title="Direct link to Step 3: Configure Overlay">​</a></h4>
+<ol>
+<li>Enable and open overlay editor</li>
+<li>Click:<!-- -->
+<ul>
+<li>Layouts → Load</li>
+<li>Select your <code>presentmon_custom.ovl</code></li>
+<li>Layouts → Save</li>
+</ul>
+</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="step-4-find-process-id">Step 4: Find Process ID<a href="#step-4-find-process-id" class="hash-link" aria-label="Direct link to Step 4: Find Process ID" title="Direct link to Step 4: Find Process ID">​</a></h4>
+<ol>
+<li>Open Task Manager → Details tab</li>
+<li>Find PID number for Lossless Scaling.exe<!-- -->
+<ul>
+<li><em>Remember this number</em></li>
+</ul>
+</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="step-5-set-process-id-in-overlay">Step 5: Set Process ID in Overlay<a href="#step-5-set-process-id-in-overlay" class="hash-link" aria-label="Direct link to Step 5: Set Process ID in Overlay" title="Direct link to Step 5: Set Process ID in Overlay">​</a></h4>
+<ol>
+<li>
+<p>Open overlay editor</p>
+</li>
+<li>
+<p>Layouts → Edit</p>
+</li>
+<li>
+<p>Environmental Variables:</p>
+<p>PM_ProcessId=3302  (replace 3302 with your actual PID)</p>
+</li>
+<li>
+<p>Layouts → Save</p>
+</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="step-6-ahk-script-setup">Step 6: AHK Script Setup<a href="#step-6-ahk-script-setup" class="hash-link" aria-label="Direct link to Step 6: AHK Script Setup" title="Direct link to Step 6: AHK Script Setup">​</a></h4>
+<ul>
+<li>Download <code>Attach-Lossless Scaling.ahk</code></li>
+<li><strong>Purpose:</strong> Automatically switches PID number</li>
+<li><strong>Important Notes:</strong>
+<ul>
+<li>Required to capture LSFG FPS</li>
+<li>Must set correct PID once before script works</li>
+<li>Script will auto-switch PID after initial setup</li>
+<li>PID changes when:<!-- -->
+<ul>
+<li>Closing Lossless Scaling</li>
+<li>Restarting PC</li>
+</ul>
+</li>
+<li>Usage:<!-- -->
+<ul>
+<li>Double-click AHK file to update PID</li>
+<li>Keep Lossless Scaling in tray</li>
+<li>Use hotkeys when possible</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Credit:</strong> Script by @Evil Quaint</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="additional-resources">Additional Resources:<a href="#additional-resources" class="hash-link" aria-label="Direct link to Additional Resources:" title="Direct link to Additional Resources:">​</a></h3>
+<ul>
+<li><a href="https://drive.google.com/file/d/19CnJGglohYQNVwl1HB1nlm06HokIzs8D/view?usp=sharing" target="_blank" rel="noopener noreferrer">Video Guide</a></li>
+<li><a href="https://drive.google.com/uc?export=download&amp;id=184lQ5oKMc1yMQyJIRial2ML8tccJ5yIh" target="_blank" rel="noopener noreferrer">AHK File</a></li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="guide-3---by-barbatos">Guide 3 - by Barbatos<a href="#guide-3---by-barbatos" class="hash-link" aria-label="Direct link to Guide 3 - by Barbatos" title="Direct link to Guide 3 - by Barbatos">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="required-downloads">Required Downloads:<a href="#required-downloads" class="hash-link" aria-label="Direct link to Required Downloads:" title="Direct link to Required Downloads:">​</a></h3>
+<ul>
+<li><a href="https://www.hwinfo.com/download/" target="_blank" rel="noopener noreferrer">HWinfo</a></li>
+<li><a href="https://www.msi.com/Landing/afterburner/graphics-cards" target="_blank" rel="noopener noreferrer">MSI Afterburner</a></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="configuration-steps">Configuration Steps:<a href="#configuration-steps" class="hash-link" aria-label="Direct link to Configuration Steps:" title="Direct link to Configuration Steps:">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="step-1-hwinfo-settings">Step 1: HWinfo Settings<a href="#step-1-hwinfo-settings" class="hash-link" aria-label="Direct link to Step 1: HWinfo Settings" title="Direct link to Step 1: HWinfo Settings">​</a></h4>
+<ol>
+<li>Open HWinfo</li>
+<li>Go to:<!-- -->
+<ul>
+<li>Settings → Customize</li>
+</ul>
+</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="step-2-rename-frame-rate-metric">Step 2: Rename Frame Rate Metric<a href="#step-2-rename-frame-rate-metric" class="hash-link" aria-label="Direct link to Step 2: Rename Frame Rate Metric" title="Direct link to Step 2: Rename Frame Rate Metric">​</a></h4>
+<ol>
+<li>Locate the PresentMon section</li>
+<li>Find &quot;Framerate (Presented)&quot;</li>
+<li>Rename it to &quot;LSFG&quot; (or your preferred name)<!-- -->
+<ul>
+<li><strong>Important:</strong> Rename the bottom one, not the top one</li>
+</ul>
+</li>
+<li>Click &quot;Rename&quot; to apply</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="step-3-enable-osd-display">Step 3: Enable OSD Display<a href="#step-3-enable-osd-display" class="hash-link" aria-label="Direct link to Step 3: Enable OSD Display" title="Direct link to Step 3: Enable OSD Display">​</a></h4>
+<ol>
+<li>Stay in HWinfo Settings</li>
+<li>Navigate to:<!-- -->
+<ul>
+<li>OSD (RTSS) section</li>
+</ul>
+</li>
+<li>Find your renamed metric (LSFG)</li>
+<li>Enable:<!-- -->
+<ul>
+<li>Show value in OSD</li>
+<li>Show label in OSD</li>
+</ul>
+</li>
+<li>Click OK</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="step-4-msi-afterburner-setup">Step 4: MSI Afterburner Setup<a href="#step-4-msi-afterburner-setup" class="hash-link" aria-label="Direct link to Step 4: MSI Afterburner Setup" title="Direct link to Step 4: MSI Afterburner Setup">​</a></h4>
+<ol>
+<li>Open MSI Afterburner</li>
+<li>Go to:<!-- -->
+<ul>
+<li>Settings → Monitoring</li>
+</ul>
+</li>
+<li>Next to &quot;Monitoring sensors&quot;:<!-- -->
+<ul>
+<li>Click the three dots (...)</li>
+<li>Select &quot;Activate HwInfo.dll&quot;</li>
+</ul>
+</li>
+<li>Click OK</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="completion">Completion:<a href="#completion" class="hash-link" aria-label="Direct link to Completion:" title="Direct link to Completion:">​</a></h3>
+<p><strong>Ready.</strong> Your frame generation metrics should now appear in your OSD.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="guide-4---by-yugi">Guide 4 - by Yugi<a href="#guide-4---by-yugi" class="hash-link" aria-label="Direct link to Guide 4 - by Yugi" title="Direct link to Guide 4 - by Yugi">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="required-downloads-1">Required Downloads:<a href="#required-downloads-1" class="hash-link" aria-label="Direct link to Required Downloads:" title="Direct link to Required Downloads:">​</a></h3>
+<ul>
+<li><a href="https://drive.google.com/uc?export=download&amp;id=1w6W1InivrOWA8Vfh-JT9UpCUSBOjwwJk" target="_blank" rel="noopener noreferrer">OVL file</a></li>
+<li><a href="https://www.guru3d.com/download/rtss-rivatuner-statistics-server-download/" target="_blank" rel="noopener noreferrer">RTSS</a></li>
+<li><a href="https://drive.google.com/uc?export=download&amp;id=1TyTyBShe884UKjdb7PgZgQprbG7OZicb" target="_blank" rel="noopener noreferrer">PNG file</a></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="installation-steps-1">Installation Steps:<a href="#installation-steps-1" class="hash-link" aria-label="Direct link to Installation Steps:" title="Direct link to Installation Steps:">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="step-1-place-overlay-files">Step 1: Place Overlay Files<a href="#step-1-place-overlay-files" class="hash-link" aria-label="Direct link to Step 1: Place Overlay Files" title="Direct link to Step 1: Place Overlay Files">​</a></h4>
+<p>Copy these files to:</p>
+<div class="language-plaintext codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-plaintext codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">C:\Program Files (x86)\RivaTuner Statistics Server\Plugins\Client\Overlays</span><br></span></code></pre></div></div>
+<ul>
+<li><code>losslessdualgpu.ovl</code></li>
+<li><code>Custom Overlay.png</code></li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="step-2-configure-fps-counter">Step 2: Configure FPS Counter<a href="#step-2-configure-fps-counter" class="hash-link" aria-label="Direct link to Step 2: Configure FPS Counter" title="Direct link to Step 2: Configure FPS Counter">​</a></h4>
+<p>Add this to your config.ini:</p>
+<p>[fps_counter]
+scale = 1
+color = 0xfbf673
+font = Unispace
+offset_x = 242
+offset_y = 46
+show_captured = 0</p>
+<p>Location:</p>
+<p>C:\Program Files (x86)\Steam\steamapps\common\Lossless Scaling\config.ini</p>
+<p><strong>Note:</strong> These offset values work for 1080p - adjust <code>offset_x</code> and <code>offset_y</code> for 1440p displays.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="overlay-setup">Overlay Setup:<a href="#overlay-setup" class="hash-link" aria-label="Direct link to Overlay Setup:" title="Direct link to Overlay Setup:">​</a></h3>
+<ol>
+<li>Setup → Plugins → <code>OverlayEditor.dll</code></li>
+<li>Layout → Edit → Browse under &#x27;Embedded Image&#x27;</li>
+<li>Select <code>Custom Overlay.png</code></li>
+<li>Data Sources → Add → MSI Afterburner</li>
+<li>Check all relevant sources</li>
+<li>Load <code>losslessdualgpu.ovl</code></li>
+<li>Press <code>Ctrl + Shift + L</code></li>
+<li>Customize names, sizes, and colors as needed</li>
+</ol>
+<blockquote>
+<p><em>Credits - ZifuGG, Alpcan, Barbatos &amp; Yugi</em></p>
+</blockquote></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/Guides/beta"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Rollback to older versions</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/Guides/reshade"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Reshade with LS</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#guide-1---by-zifugg" class="table-of-contents__link toc-highlight">Guide 1 - by ZifuGG</a><ul><li><a href="#step-1-install-rivatuner-statistics-server" class="table-of-contents__link toc-highlight">Step 1: Install Rivatuner Statistics Server</a></li><li><a href="#step-2-download-the-overlay-theme-you-want" class="table-of-contents__link toc-highlight">Step 2: Download the Overlay theme you want</a></li><li><a href="#step-3-download-and-install-this-font-file" class="table-of-contents__link toc-highlight">Step 3: Download and install this font file</a></li><li><a href="#step-4-follow-the-steps-in-the-video" class="table-of-contents__link toc-highlight">Step 4: Follow the steps in the video</a></li><li><a href="#directory-for-rivatuner-ovx-file" class="table-of-contents__link toc-highlight">Directory for Rivatuner .ovx file</a></li></ul></li><li><a href="#guide-2---by-alpcan" class="table-of-contents__link toc-highlight">Guide 2 - by Alpcan</a><ul><li><a href="#prerequisites" class="table-of-contents__link toc-highlight">Prerequisites:</a></li><li><a href="#installation-steps" class="table-of-contents__link toc-highlight">Installation Steps:</a></li><li><a href="#additional-resources" class="table-of-contents__link toc-highlight">Additional Resources:</a></li></ul></li><li><a href="#guide-3---by-barbatos" class="table-of-contents__link toc-highlight">Guide 3 - by Barbatos</a><ul><li><a href="#required-downloads" class="table-of-contents__link toc-highlight">Required Downloads:</a></li><li><a href="#configuration-steps" class="table-of-contents__link toc-highlight">Configuration Steps:</a></li><li><a href="#completion" class="table-of-contents__link toc-highlight">Completion:</a></li></ul></li><li><a href="#guide-4---by-yugi" class="table-of-contents__link toc-highlight">Guide 4 - by Yugi</a><ul><li><a href="#required-downloads-1" class="table-of-contents__link toc-highlight">Required Downloads:</a></li><li><a href="#installation-steps-1" class="table-of-contents__link toc-highlight">Installation Steps:</a></li><li><a href="#overlay-setup" class="table-of-contents__link toc-highlight">Overlay Setup:</a></li></ul></li></ul></div></div></div></div></main></div></div></div></div><footer class="theme-layout-footer footer"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.reddit.com/r/losslessscaling/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Offical Reddit<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://discord.gg/tuwuNF3xSA" target="_blank" rel="noopener noreferrer" class="footer__link-item">Offical Discord<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://steamcommunity.com/app/993090/discussions/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Official Steam Community<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div></div></footer></div>
+</body>
+</html>

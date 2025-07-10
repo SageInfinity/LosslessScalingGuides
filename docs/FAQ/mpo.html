@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-FAQ/mpo" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.8.1">
+<title data-rh="true">What is MPO? | Lossless Scaling Guides</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://sageinfinity.github.io/docs/FAQ/mpo"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="What is MPO? | Lossless Scaling Guides"><meta data-rh="true" name="description" content="Information about Multi Plane Overlay (MPO)"><meta data-rh="true" property="og:description" content="Information about Multi Plane Overlay (MPO)"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://sageinfinity.github.io/docs/FAQ/mpo"><link data-rh="true" rel="alternate" href="https://sageinfinity.github.io/docs/FAQ/mpo" hreflang="en"><link data-rh="true" rel="alternate" href="https://sageinfinity.github.io/docs/FAQ/mpo" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"What is MPO?","item":"https://sageinfinity.github.io/docs/FAQ/mpo"}]}</script><link rel="stylesheet" href="/assets/css/styles.1f5fa4f9.css">
+<script src="/assets/js/runtime~main.88409285.js" defer="defer"></script>
+<script src="/assets/js/main.56c11940.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t="dark";var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",e||t),document.documentElement.setAttribute("data-theme-choice",e||t)}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/favicon.ico"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/favicon.ico" alt="" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/favicon.ico" alt="" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">HOME</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" overflow="visible" href="/docs/Guides/videoguides">Video Guides</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" overflow="visible" href="/docs/Guides/start">Guides</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" overflow="visible" href="/docs/Guides/DualGPUGuide">DualGPU Guide</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" overflow="visible" href="/docs/FAQ/scalers">FAQ</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" overflow="visible" href="/docs/Graphs">Graphs</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://losslessscaling.com/" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link header-website-link" aria-label="Official Website"></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="main-content-wrapper"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/FAQ/scalers">FAQ</a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/FAQ/scalers">What are Spatial Scalers in LS?</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/FAQ/flowscale">What is Flow Scale?</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/FAQ/dxgiwgc">What is the difference between DXGI and WGC? What should I use?</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/FAQ/mpo">What is MPO?</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/FAQ/settings">Where are the LS settings &amp; profiles saved?</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/FAQ/config">What are the parameters of config.ini file for?</a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/Graphs">Graphs</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/Guides/start">Guides</a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">FAQ</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">What is MPO?</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>What is MPO?</h1></header><h2 class="anchor anchorWithStickyNavbar_LWe7" id="multiplane-overlay-mpo-in-windows">MULTIPLANE OVERLAY (MPO) IN WINDOWS<a href="#multiplane-overlay-mpo-in-windows" class="hash-link" aria-label="Direct link to MULTIPLANE OVERLAY (MPO) IN WINDOWS" title="Direct link to MULTIPLANE OVERLAY (MPO) IN WINDOWS">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="what-is-mpo-and-why-does-it-matter">WHAT IS MPO AND WHY DOES IT MATTER?<a href="#what-is-mpo-and-why-does-it-matter" class="hash-link" aria-label="Direct link to WHAT IS MPO AND WHY DOES IT MATTER?" title="Direct link to WHAT IS MPO AND WHY DOES IT MATTER?">​</a></h3>
+<p>Multi-Plane Overlay (MPO) is a modern hardware feature in Windows 10 and 11 that changes how your computer displays content. It lets the Desktop Window Manager (DWM) offload different UI elements (like games, videos, and overlays) as separate layers to the GPU. Misfucntioning or conflicts with MPO may cause flickers, partial screen freezes, HDR performance loss or incompatibilities, and many other.</p>
+<p><strong>Benefits:</strong></p>
+<ul>
+<li><strong>Better Performance:</strong> No more full-screen compositing.</li>
+<li><strong>Lower Latency:</strong> Direct scan-out equals a faster response.</li>
+<li><strong>Power Efficient:</strong> Uses GPU display engines instead of processing cores.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="why-is-it-finicky">WHY IS IT FINICKY?<a href="#why-is-it-finicky" class="hash-link" aria-label="Direct link to WHY IS IT FINICKY?" title="Direct link to WHY IS IT FINICKY?">​</a></h3>
+<p>MPO relies on a fragile chain:
+Windows → App → GPU Driver → Monitor</p>
+<p>If any part of this chain breaks, it can result in flickering, black screens, stutters, and even system crashes.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="how-it-works-from-legacy-to-modern-composition">HOW IT WORKS: FROM LEGACY TO MODERN COMPOSITION<a href="#how-it-works-from-legacy-to-modern-composition" class="hash-link" aria-label="Direct link to HOW IT WORKS: FROM LEGACY TO MODERN COMPOSITION" title="Direct link to HOW IT WORKS: FROM LEGACY TO MODERN COMPOSITION">​</a></h3>
+<ol>
+<li><strong>DWM Composition (Legacy)</strong>
+<ul>
+<li>Every app draws its content off-screen → The DWM pastes it into a final desktop image → The GPU displays it.</li>
+<li>This results in high latency and memory usage.</li>
+</ul>
+</li>
+<li><strong>Flip Presentation Model</strong>
+<ul>
+<li>The app tells the DWM where its frame is located → The DWM &quot;flips&quot; to it.</li>
+<li>This is faster and is used in modern windowed games.</li>
+</ul>
+</li>
+<li><strong>Multi-Plane Overlay (MPO)</strong>
+<ul>
+<li>Multiple &quot;planes&quot; (game, video, overlay) are sent directly to the GPU&#x27;s display controller.</li>
+<li>The final image is assembled in hardware during scan-out.</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="analogy">ANALOGY<a href="#analogy" class="hash-link" aria-label="Direct link to ANALOGY" title="Direct link to ANALOGY">​</a></h3>
+<ul>
+<li><strong>Legacy DWM:</strong> Scanning a finished collage.</li>
+<li><strong>MPO:</strong> Scanning stacked, transparent layers.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="influencing-factors">INFLUENCING FACTORS<a href="#influencing-factors" class="hash-link" aria-label="Direct link to INFLUENCING FACTORS" title="Direct link to INFLUENCING FACTORS">​</a></h3>
+<ol>
+<li><strong>Windows &amp; WDDM</strong>
+<ul>
+<li><strong>Windows 10:</strong> Stable but can be buggy.</li>
+<li><strong>Windows 11:</strong> Deeply tied to MPO (e.g., AutoHDR, Optimized Windowed Mode).</li>
+<li>Newer builds like 24H2 have known MPO bugs.</li>
+</ul>
+</li>
+<li><strong>GPU Drivers</strong>
+<ul>
+<li><strong>NVIDIA:</strong> Can cause flickering in Chrome and games (especially on pre-RTX cards).</li>
+<li><strong>AMD:</strong> Can cause black screens and driver resets (common on 5000/6000/7000 series).</li>
+<li>Driver updates are critical.</li>
+</ul>
+</li>
+<li><strong>Monitors &amp; Connectivity</strong>
+<ul>
+<li>High refresh rates (144Hz+), VRR (G-Sync/FreeSync), and HDR add complexity.</li>
+<li>Multi-monitor setups place massive stress on MPO.</li>
+<li><strong>DisplayPort &amp; HDMI:</strong> Bandwidth matters more than the specific format.</li>
+</ul>
+</li>
+<li><strong>HDR &amp; AutoHDR</strong>
+<ul>
+<li>MPO must handle SDR and HDR content together.</li>
+<li>Some features (e.g., RTX HDR) may automatically disable MPO.</li>
+</ul>
+</li>
+<li><strong>Overlays</strong>
+<ul>
+<li>Discord, Steam, Xbox Game Bar, and RTSS all create new planes.</li>
+<li>Poorly coded overlays can break MPO, causing a fallback to legacy composition.</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="common-issues">COMMON ISSUES<a href="#common-issues" class="hash-link" aria-label="Direct link to COMMON ISSUES" title="Direct link to COMMON ISSUES">​</a></h3>
+<p>Symptoms that MPO might cause:</p>
+<ul>
+<li><strong>Screen Flickering:</strong> Especially when hovering over elements or videos.</li>
+<li><strong>Black Screens:</strong> Temporary signal dropouts.</li>
+<li><strong>Micro-stutters:</strong> Choppy visuals despite a high FPS.</li>
+<li><strong>Artifacts:</strong> Glitched text or a blurry UI.</li>
+<li><strong>Driver Crashes:</strong> Can be logged in the Event Viewer.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="troubleshooting-steps">TROUBLESHOOTING STEPS<a href="#troubleshooting-steps" class="hash-link" aria-label="Direct link to TROUBLESHOOTING STEPS" title="Direct link to TROUBLESHOOTING STEPS">​</a></h3>
+<p><strong>Start Here:</strong></p>
+<ol>
+<li>Use DDU to completely uninstall GPU drivers, then install the latest version.</li>
+<li>Update Windows to the latest version.</li>
+<li>Disable overlays (Discord, Steam, RTSS, etc.).</li>
+<li>Turn off &quot;Hardware Acceleration&quot; in browsers and &quot;Hardware-accelerated GPU Scheduling&quot; in Windows settings.</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="disable-mpo-system-wide">DISABLE MPO SYSTEM-WIDE<a href="#disable-mpo-system-wide" class="hash-link" aria-label="Direct link to DISABLE MPO SYSTEM-WIDE" title="Direct link to DISABLE MPO SYSTEM-WIDE">​</a></h3>
+<p><strong>WARNING:</strong> Editing the registry can break Windows. Proceed with caution.</p>
+<p><strong>Option A - Use NvCleanstall (UI-based tool)</strong></p>
+<p><strong>Option B - Create a Disable_MPO.reg file</strong></p>
+<ol>
+<li>Open Notepad and paste the following:<!-- -->
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Windows Registry Editor Version 5.00</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Dwm]</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">&quot;OverlayTestMode&quot;=dword:00000005</span><br></span></code></pre></div></div>
+</li>
+<li>Save the file as <code>Disable_MPO.reg</code> (ensure you select &quot;All Files&quot; for the &#x27;Save as type&#x27; option).</li>
+<li>Double-click the saved file to merge it into the registry.</li>
+<li>Restart your PC.</li>
+</ol>
+<p><strong>NOTE:</strong> This may not work on Windows 11 24H2 and newer.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="how-to-re-enable-mpo">HOW TO RE-ENABLE MPO<a href="#how-to-re-enable-mpo" class="hash-link" aria-label="Direct link to HOW TO RE-ENABLE MPO" title="Direct link to HOW TO RE-ENABLE MPO">​</a></h3>
+<p><strong>Option A - Use NvCleanstall (UI-based tool)</strong></p>
+<p><strong>Option B - Create an Enable_MPO.reg file</strong></p>
+<ol>
+<li>Open Notepad and paste the following:<!-- -->
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Windows Registry Editor Version 5.00</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Dwm]</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">&quot;OverlayTestMode&quot;=-</span><br></span></code></pre></div></div>
+</li>
+<li>Run the file, restart your PC, and you&#x27;re done.</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="conclusion-should-you-disable-mpo">CONCLUSION: SHOULD YOU DISABLE MPO?<a href="#conclusion-should-you-disable-mpo" class="hash-link" aria-label="Direct link to CONCLUSION: SHOULD YOU DISABLE MPO?" title="Direct link to CONCLUSION: SHOULD YOU DISABLE MPO?">​</a></h3>
+<p><strong>If your system is stable:</strong>
+→ Keep MPO enabled for:</p>
+<ul>
+<li>Low latency</li>
+<li>Better power efficiency</li>
+<li>Hardware-Independent Flip</li>
+</ul>
+<p><strong>If you are having issues and have tried everything else:</strong>
+→ Disabling MPO is a valid last resort.</p>
+<blockquote>
+<p><em>by- Sage</em></p>
+</blockquote></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/FAQ/dxgiwgc"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">What is the difference between DXGI and WGC? What should I use?</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/FAQ/settings"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Where are the LS settings &amp; profiles saved?</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#multiplane-overlay-mpo-in-windows" class="table-of-contents__link toc-highlight">MULTIPLANE OVERLAY (MPO) IN WINDOWS</a><ul><li><a href="#what-is-mpo-and-why-does-it-matter" class="table-of-contents__link toc-highlight">WHAT IS MPO AND WHY DOES IT MATTER?</a></li><li><a href="#why-is-it-finicky" class="table-of-contents__link toc-highlight">WHY IS IT FINICKY?</a></li><li><a href="#how-it-works-from-legacy-to-modern-composition" class="table-of-contents__link toc-highlight">HOW IT WORKS: FROM LEGACY TO MODERN COMPOSITION</a></li><li><a href="#analogy" class="table-of-contents__link toc-highlight">ANALOGY</a></li><li><a href="#influencing-factors" class="table-of-contents__link toc-highlight">INFLUENCING FACTORS</a></li><li><a href="#common-issues" class="table-of-contents__link toc-highlight">COMMON ISSUES</a></li><li><a href="#troubleshooting-steps" class="table-of-contents__link toc-highlight">TROUBLESHOOTING STEPS</a></li><li><a href="#disable-mpo-system-wide" class="table-of-contents__link toc-highlight">DISABLE MPO SYSTEM-WIDE</a></li><li><a href="#how-to-re-enable-mpo" class="table-of-contents__link toc-highlight">HOW TO RE-ENABLE MPO</a></li><li><a href="#conclusion-should-you-disable-mpo" class="table-of-contents__link toc-highlight">CONCLUSION: SHOULD YOU DISABLE MPO?</a></li></ul></li></ul></div></div></div></div></main></div></div></div></div><footer class="theme-layout-footer footer"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.reddit.com/r/losslessscaling/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Offical Reddit<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://discord.gg/tuwuNF3xSA" target="_blank" rel="noopener noreferrer" class="footer__link-item">Offical Discord<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://steamcommunity.com/app/993090/discussions/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Official Steam Community<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div></div></footer></div>
+</body>
+</html>
