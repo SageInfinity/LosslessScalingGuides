@@ -26,6 +26,7 @@ const config: Config = {
   //organizationName: 'facebook', // Usually your GitHub org/user name.
   projectName: 'sageinfinity.github.io',
   organizationName: 'sageinfinity',
+  deploymentBranch: 'deploy',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   trailingSlash: false,
