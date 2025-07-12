@@ -1,0 +1,384 @@
+html:not([data-theme]) {
+  background: #222; /* Dark background while loading */
+}
+:root {
+  --docusaurus-bg-overlay-dark: rgba(0, 0, 0, 0.5);
+  --ifm-font-size-base: 20px;
+}
+
+body {
+  a:hover {
+  color: #ff8502;
+}
+}
+
+body {
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  
+}
+
+[data-theme='light'] .navbar {
+ color:black;
+ --ifm-navbar-link-color: black !important;
+} 
+
+[data-theme='light'] body::before {
+   filter: blur(10px) brightness(1);
+   z-index: -1000000;
+} 
+[data-theme='light'] body::after {
+  filter: blur(10px) brightness(1);
+  z-index: -10000000;
+} 
+
+/* Color overlay for better readability */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: rgb(86, 175, 255);
+}
+
+[data-theme='dark'] body::before {
+  background-color: var(--docusaurus-bg-overlay-dark);
+  filter: blur(8px) brightness(1);
+}
+[data-theme='dark'] body::after {
+  background-color: var(--docusaurus-bg-overlay-dark);
+  filter: blur(8px) brightness(1);
+}
+[data-theme='light'] body {
+  --ifm-link-color: rgb(255, 255, 255);
+  font-weight: 500;
+}
+[data-theme='dark'] body {
+--ifm-link-color: rgb(255, 241, 0);
+}
+.navbar {
+  position:sticky;
+  background: var(--docusaurus-bg-overlay-dark);
+  z-index: 10001;
+  font-family: 'pixel2';
+}
+.sidebar {
+  z-index: 10000 !important; /* Lower than navbar */
+  margin-top: var(--ifm-navbar-height); /* Push sidebar below navbar */
+}
+/* Ensure content stays above background */
+.main-wrapper, .footer {
+  position: relative;
+  background: transparent;
+}
+/* ===== Custom Elements ===== */
+.header-website-link {
+  background: url('img/Light.gif') no-repeat center;
+  background-size: contain;
+  height: 50px;
+  width: 50px;
+  border: none;
+  display: inline-block;
+  margin-right: 8px;
+}
+/* Keep navbar white in light mode */
+[data-theme='light'] .navbar {
+  background-color: white !important;
+  backdrop-filter: none !important;
+}
+
+.footer {
+ font-family: 'pixel2';
+}
+
+
+@font-face {
+  font-family: 'pixel1';
+  src: url('/fonts/5.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'pixel2';
+  src: url('/fonts/4.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+[data-theme='light'] .theme-doc-sidebar-item-link {
+  color: #111 !important;
+}
+
+[data-theme='light'] .menu__link--active {
+  color: #56afff !important;
+}
+
+[data-theme='light'] .theme-doc-sidebar-item-link:hover {
+  color: #000; /* Slightly darker on hover */
+}
+/* Category headings */
+[data-theme='light'] .menu__list-item-collapsible .menu__link {
+  color: #111 !important; /* Darker for category titles */
+  font-weight: 600;
+}
+
+ .navbar-sidebar .header-website-link {
+   display: none;
+ }
+.video-container {
+  margin: 2rem 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.video-container video {
+  display: block;
+  max-width: 100%;
+}
+[data-theme='light'] .theme-doc-sidebar-item-link > .menu__link {
+  color: black !important;
+}
+
+[data-theme='light'] .theme-doc-sidebar-item-link > .menu__link:hover {
+  color: #ff8502 !important;
+}
+
+[data-theme='light'] .theme-doc-sidebar-item-link > .menu__link--active {
+  color: #ff8502 !important;
+}
+[data-theme='light'] {
+  --ifm-toc-link-color: black;
+  --ifm-toc-link-color-active: black;
+  --ifm-toc-link-color-hover: rgba(0, 0, 0, 0.85);
+}
+/* Make all breadcrumbs white */
+.theme-doc-breadcrumbs {
+  --ifm-breadcrumb-color-active: white;
+  --ifm-breadcrumb-item-color: white;
+  --ifm-breadcrumb-item-color-active: white;
+  --ifm-breadcrumb-color-hover: rgba(255, 255, 255, 0.9);
+}
+
+/* Individual link styling */
+.breadcrumbs__link,
+.breadcrumbs__item:not(:last-child)::after {
+  color: white !important;
+}
+
+/* Hover effect */
+.breadcrumbs__link:hover {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+/* Hero container */
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+  margin: 0 auto;
+  background-image: url('/img/bg.png');
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-position: 10vh;
+}
+
+/* Hero banner (image) */
+.hero-banner {
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 20rem;
+}
+
+/* Hero content (title) */
+.hero-content {
+  text-align: center;
+}
+
+.hero-title {
+  font-family: 'pixel1', sans-serif; /* Use your font */
+  font-weight: 800;
+  font-size: 3.5rem;
+  color: #ffffff;
+  line-height: 1.5;
+ }
+
+/* Desktop layout */
+@media (min-width: 999px) {
+  .hero-container {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+  }
+  
+  .hero-banner {
+    flex: 0 0 50%;
+    max-width: 50%;
+    margin-bottom: 0;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  
+  .hero-content {
+    flex: 0 0 45%;
+    text-align: left;
+  }
+  
+  .hero-title {
+    font-size: 5rem;
+  }
+}
+/* Footer gradient overlay */
+.footer {
+  position: relative;
+  background-image: url('/img/bg.png');
+  background-position: 10vh;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  backdrop-filter: blur(10px);
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,    /* Dark at bottom */
+    rgba(0, 0, 0, 0.5) 50%,    /* Medium opacity */
+    rgba(0, 0, 0, 0) 100%      /* Transparent at top */
+  );
+  z-index: -1; /* Place behind content */
+}
+
+/* Content styling */
+.footer__container {
+  position: relative;
+  z-index: 1; /* Ensure content stays above gradient */
+
+}
+
+/* Text and link colors */
+.footer__title,
+.footer__item {
+  color: #ffffff !important;
+}
+
+.footer__link-item {
+  color: #e0e0ff !important;
+  transition: all 0.3s ease;
+}
+
+.footer__link-item:hover {
+  color: #ffffff !important;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+/* Add subtle texture */
+.footer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+/* Light theme custom code blocks */
+[data-theme='light'] :not(pre) > code {
+  background-color: #e6f7ff !important; /* Light blue background */
+  color: #1890ff !important; /* Blue text */
+  border: 1px solid #91d5ff !important; /* Light blue border */
+  border-radius: 4px;
+  padding: 0.2em 0.4em;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  font-size: 0.92em;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Hover effect */
+[data-theme='light'] :not(pre) > code:hover {
+  background-color: #d0eaff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+}
+
+/* Special cases */
+[data-theme='light'] a > code {
+  color: #004085 !important; /* Slightly darker blue for links */
+  text-decoration: underline;
+  text-decoration-color: rgba(9, 109, 217, 0.3);
+}
+
+[data-theme='light'] strong > code {
+  font-weight: bolder;
+  border-width: 1.5px;
+}
+/* Light theme blockquote customization */
+[data-theme='light'] blockquote {
+  color: #1890ff !important;
+  border-left: 3px solid #91d5ff !important;
+  background-color: transparent !important;
+  padding: 8px 15px !important;
+}
+
+/* Quote character styling */
+[data-theme='light'] blockquote::before {
+  font-family: Georgia, serif;
+  font-size: 3rem;
+  color: #adc6ff !important; /* Light blue quote mark */
+  position: absolute;
+  left: 10px;
+  top: -10px;
+  opacity: 0.6;
+}
+
+/* Text inside blockquotes */
+[data-theme='light'] blockquote p {
+  color: #ffffff !important;
+  font-style: normal !important;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+/* Author/source text */
+[data-theme='light'] blockquote footer,
+[data-theme='light'] blockquote cite {
+  color: #597ef7 !important; /* Medium blue */
+  font-style: italic;
+  font-size: 0.9rem;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+/* Hover effect */
+[data-theme='light'] blockquote:hover {
+  transform: translateX(5px);
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.15) !important;
+}
+
+
