@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.8.1">
 <title data-rh="true">Dual GPU Troubleshooting | Lossless Scaling Guides</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://sageinfinity.github.io/docs/Guides/dualgputroubleshoot"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Dual GPU Troubleshooting | Lossless Scaling Guides"><meta data-rh="true" name="description" content="Troubleshooting for issues in Dual GPU setup"><meta data-rh="true" property="og:description" content="Troubleshooting for issues in Dual GPU setup"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://sageinfinity.github.io/docs/Guides/dualgputroubleshoot"><link data-rh="true" rel="alternate" href="https://sageinfinity.github.io/docs/Guides/dualgputroubleshoot" hreflang="en"><link data-rh="true" rel="alternate" href="https://sageinfinity.github.io/docs/Guides/dualgputroubleshoot" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Dual GPU Troubleshooting","item":"https://sageinfinity.github.io/docs/Guides/dualgputroubleshoot"}]}</script><link rel="stylesheet" href="/assets/css/styles.0d0c2ecc.css">
-<script src="/assets/js/runtime~main.6ed386eb.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.caff3434.js" defer="defer"></script>
 <script src="/assets/js/main.a5c82fe6.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -145,6 +145,7 @@ Beyond this, causes of this issue aren&#x27;t well known. Try uninstalling all G
 <li>Search for the &quot;Driver Key&quot; of your GPU.</li>
 <li>Once you&#x27;ve found the correct registry key for your GPU, look for or create a new String Value named FriendlyName.</li>
 <li>Double-click on FriendlyName and set its &quot;Value data&quot; to the desired GPU name.</li>
+<li>Then look for &quot;DeviceDesc&quot; and edit the code. You&#x27;ll see a long string, search for the GPU name (according to your GPU) like this : &quot;;NVIDIA GeForce RTX 3090&quot;. You can add anything you want after the semicolon, and it will change the listed description name.</li>
 <li>Restart</li>
 </ol>
 <hr>
