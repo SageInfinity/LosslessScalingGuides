@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.8.1">
 <title data-rh="true">Official Dual GPU Guide/Overview | Lossless Scaling Guides</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://sageinfinity.github.io/docs/Guides/DualGPUGuide"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Official Dual GPU Guide/Overview | Lossless Scaling Guides"><meta data-rh="true" name="description" content="Step by step guide for requirements, setup, and some tips for offloading LSFG (Lossless Scaling Frame Generation) to secondary GPU on windows."><meta data-rh="true" property="og:description" content="Step by step guide for requirements, setup, and some tips for offloading LSFG (Lossless Scaling Frame Generation) to secondary GPU on windows."><meta data-rh="true" name="keywords" content="Lossless Scaling,LSFG,Dual GPU LSFG,Dual GPU"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://sageinfinity.github.io/docs/Guides/DualGPUGuide"><link data-rh="true" rel="alternate" href="https://sageinfinity.github.io/docs/Guides/DualGPUGuide" hreflang="en"><link data-rh="true" rel="alternate" href="https://sageinfinity.github.io/docs/Guides/DualGPUGuide" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Official Dual GPU Guide/Overview","item":"https://sageinfinity.github.io/docs/Guides/DualGPUGuide"}]}</script><link rel="stylesheet" href="/assets/css/styles.0d0c2ecc.css">
-<script src="/assets/js/runtime~main.51e3a7cc.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.691fa945.js" defer="defer"></script>
 <script src="/assets/js/main.a5c82fe6.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -40,7 +40,55 @@ framerate is capped to 60fps. Uncapped base FPS scenarios show even more drastic
 <p>(points 1-4 apply to desktops only):</p>
 </blockquote>
 <ol>
-<li>Windows 11; Windows 10 requires registry editing to get games to run on the render GPU : <a href="https://www.reddit.com/r/AMDHelp/comments/18fr7j3/configuring_power_saving_and_high_performance/" target="_blank" rel="noopener noreferrer">Win10-Registry for selecting High Perf GPU </a> and may have unexpected behavior.</li>
+<li>Windows 11 has new options in the windows settings. Windows 10 requires registry editing to get games to run on the render GPU and may have unexpected behavior.</li>
+</ol>
+<ul>
+<li>
+<p>Open Registry Editor:</p>
+</li>
+<li>
+<p>Press Win + R to open the Run dialog.</p>
+</li>
+<li>
+<p>Type regedit and press Enter. Approve the User Account Control (UAC) prompt.</p>
+</li>
+<li>
+<p>Navigate to the key :</p>
+<ul>
+<li>In the address bar at the top of the Registry Editor</li>
+<li>Copy and paste the following path and press Enter:</li>
+<li><code>HKEY_CURRENT_USER\Software\Microsoft\DirectX\UserGpuPreferences</code></li>
+</ul>
+</li>
+<li>
+<p>Right-click in the empty space on the right-hand pane -&gt; Select New -&gt; String Value.</p>
+</li>
+<li>
+<p>For the Value name : <code>DirectXUserGlobalSettings</code></p>
+</li>
+<li>
+<p>In the Value data field, enter your desired preference as follows:
+<code>HighPerfAdapter=xxx</code> where XXX stands for hardware ID’s VEN&amp;DEV&amp;SUBSYS of your graphics card, which can be found in device manager.</p>
+</li>
+<li>
+<p>Close Registry Editor: The changes are applied immediately, but it&#x27;s best to restart the application for the new setting to take effect</p>
+</li>
+<li>
+<p>Also make the following changes, just to be sure:</p>
+<ul>
+<li>Navigate Regedit to <code>Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Class\{4d36e968-e325-11ce-bfc1-08002be10318}</code></li>
+<li>Identify the four digit subfolders that contain your desired GPUs (e.g. by the key DriverDesc inside)</li>
+<li>Create a new DWORD key inside both four digit folders, name it <code>EnableMsHybrid</code></li>
+<li>Set it to a value of 1 for the performance GPU, set it to a value of 2 for
+the power save GPU</li>
+<li>Reboot.</li>
+</ul>
+</li>
+<li>
+<p><em>Source : <a href="https://www.reddit.com/r/AMDHelp/comments/18fr7j3/configuring_power_saving_and_high_performance/" target="_blank" rel="noopener noreferrer">Win10-Registry for selecting High Perf GPU </a></em></p>
+</li>
+</ul>
+<ol start="2">
 <li>A motherboard that supports good enough PCIe bandwidth for two GPUs. The limitation is the slowest slot of the two that GPUs are connected to. Find expansion slot information in your motherboard&#x27;s user manual. Here&#x27;s what we know different PCIe specs can handle:</li>
 <li>PCIe requirements:</li>
 </ol>
