@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.8.1">
-<title data-rh="true">Official Dual GPU Guide/Overview | Lossless Scaling Guides</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://sageinfinity.github.io/docs/Guides/DualGPUGuide"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Official Dual GPU Guide/Overview | Lossless Scaling Guides"><meta data-rh="true" name="description" content="Step by step guide for requirements, setup, and some tips for offloading LSFG (Lossless Scaling Frame Generation) to secondary GPU on windows."><meta data-rh="true" property="og:description" content="Step by step guide for requirements, setup, and some tips for offloading LSFG (Lossless Scaling Frame Generation) to secondary GPU on windows."><meta data-rh="true" name="keywords" content="Lossless Scaling,LSFG,Dual GPU LSFG,Dual GPU"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://sageinfinity.github.io/docs/Guides/DualGPUGuide"><link data-rh="true" rel="alternate" href="https://sageinfinity.github.io/docs/Guides/DualGPUGuide" hreflang="en"><link data-rh="true" rel="alternate" href="https://sageinfinity.github.io/docs/Guides/DualGPUGuide" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Official Dual GPU Guide/Overview","item":"https://sageinfinity.github.io/docs/Guides/DualGPUGuide"}]}</script><link rel="stylesheet" href="/assets/css/styles.1f5fa4f9.css">
-<script src="/assets/js/runtime~main.80fa2d3f.js" defer="defer"></script>
+<title data-rh="true">Official Dual GPU Guide/Overview | Lossless Scaling Guides</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://sageinfinity.github.io/docs/Guides/DualGPUGuide"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Official Dual GPU Guide/Overview | Lossless Scaling Guides"><meta data-rh="true" name="description" content="Step by step guide for requirements, setup, and some tips for offloading LSFG (Lossless Scaling Frame Generation) to secondary GPU on windows."><meta data-rh="true" property="og:description" content="Step by step guide for requirements, setup, and some tips for offloading LSFG (Lossless Scaling Frame Generation) to secondary GPU on windows."><meta data-rh="true" name="keywords" content="Lossless Scaling,LSFG,Dual GPU LSFG,Dual GPU"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://sageinfinity.github.io/docs/Guides/DualGPUGuide"><link data-rh="true" rel="alternate" href="https://sageinfinity.github.io/docs/Guides/DualGPUGuide" hreflang="en"><link data-rh="true" rel="alternate" href="https://sageinfinity.github.io/docs/Guides/DualGPUGuide" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Official Dual GPU Guide/Overview","item":"https://sageinfinity.github.io/docs/Guides/DualGPUGuide"}]}</script><link rel="stylesheet" href="/assets/css/styles.0d0c2ecc.css">
+<script src="/assets/js/runtime~main.2dd0544a.js" defer="defer"></script>
 <script src="/assets/js/main.a5c82fe6.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -23,11 +23,11 @@
 <p>When set up properly, a dual GPU LSFG setup can result in nearly the best performance and lowest latency physically possible with frame generation, often beating DLSS and FSR frame generation implementations in those categories. Multiple GPU brands can be mixed.</p>
 </li>
 </ul>
-<p><img decoding="async" loading="lazy" alt="alt-text" src="/assets/images/d1-58ab250d9f4785a76a6bd82f7604ad5c.png" width="950" height="1161" class="img_ev3q"></p>
-<p>Image credit: Ravenger. Display was connected to the GPU running frame generation in each test (4060ti for DLSS/FSR).</p>
-<p><img decoding="async" loading="lazy" alt="alt-text" src="/assets/images/d2-ceec7d71d5be2df07e123a70a22db307.png" width="2245" height="1824" class="img_ev3q"></p>
-<p>Chart and data by u/CptTombstone, collected with an OSLTT. Both versions of LSFG are using X4 frame generation. Reflex and G-sync are on for all tests, and the base
-framerate is capped to 60fps. Uncapped base FPS scenarios show even more drastic differences.</p>
+<p><img decoding="async" loading="lazy" alt="alt-text" src="/assets/images/d1-58ab250d9f4785a76a6bd82f7604ad5c.png" width="950" height="1161" class="img_ev3q">
+<em>Image credit: Ravenger. Display was connected to the GPU running frame generation in each test (4060ti for DLSS/FSR)</em></p>
+<p><img decoding="async" loading="lazy" alt="alt-text" src="/assets/images/d2-ceec7d71d5be2df07e123a70a22db307.png" width="2245" height="1824" class="img_ev3q">
+<em>Chart and data by u/CptTombstone, collected with an OSLTT. Both versions of LSFG are using X4 frame generation. Reflex and G-sync are on for all tests, and the base
+framerate is capped to 60fps. Uncapped base FPS scenarios show even more drastic differences.</em></p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="how-the-dual-gpu-setup-works">How the Dual GPU setup works:<a href="#how-the-dual-gpu-setup-works" class="hash-link" aria-label="Direct link to How the Dual GPU setup works:" title="Direct link to How the Dual GPU setup works:">​</a></h2>
 <ul>
 <li>Real frames (assuming no in-game FG is used) are rendered by the render GPU.</li>
@@ -77,18 +77,21 @@ framerate is capped to 60fps. Uncapped base FPS scenarios show even more drastic
 <li>Install drivers for both GPUs. If each are of the same brand, they use the same drivers. If each are of different brands, you&#x27;ll need to seperately install drivers for both.</li>
 <li>Connect your display to your secondary GPU, not your rendering GPU. Otherwise, a large performance hit will occur. On a desktop, this means connecting the display to the motherboard if using the iGPU. This is explained in How it works/4.</li>
 </ol>
-<p><img decoding="async" loading="lazy" alt="alt-text" src="/assets/images/d3-6699d774a9606ced6f178e3b6120f791.png" width="1255" height="441" class="img_ev3q"></p>
-<p>Bottom GPU is render 4060ti 16GB, top GPU is secondary Arc B570.
-Bottom GPU is render 4060ti 16GB, top GPU is secondary Arc B570.
-3. Ensure your rendering GPU is set in System -&gt; Display -&gt; Graphics -&gt; Default graphics settings.</p>
-<p><img decoding="async" loading="lazy" alt="alt-text" src="/assets/images/d4-036d405a857b511a402003fb062744b3.png" width="1394" height="177" class="img_ev3q"></p>
-<p>This setting is on Windows 11 only. On Windows 10, a registry edit needs to be done, as mentioned in System Requirements.
-This setting is on Windows 11 only. On Windows 10, a registry edit needs to be done, as mentioned in System Requirements.
-4. Set the Preferred GPU in Lossless Scaling settings -&gt; GPU &amp; Display to your secondary GPU.</p>
+<p><img decoding="async" loading="lazy" alt="alt-text" src="/assets/images/d3-6699d774a9606ced6f178e3b6120f791.png" width="1255" height="441" class="img_ev3q">
+<em>Bottom GPU is render 4060ti 16GB, top GPU is secondary Arc B570, on x8/x8 configuration</em></p>
+<ol start="3">
+<li>Ensure your rendering GPU is set in System -&gt; Display -&gt; Graphics -&gt; Default graphics settings.</li>
+</ol>
+<p><img decoding="async" loading="lazy" alt="alt-text" src="/assets/images/d4-036d405a857b511a402003fb062744b3.png" width="1394" height="177" class="img_ev3q">
+<em>This setting is on Windows 11 only. On Windows 10, a registry edit needs to be done, as mentioned in System Requirements.</em></p>
+<ol start="4">
+<li>Set the Preferred GPU in Lossless Scaling settings -&gt; GPU &amp; Display to your secondary GPU.</li>
+</ol>
 <p><img decoding="async" loading="lazy" alt="alt-text" src="/assets/images/d5-ec34259ebd6141537a89a71a6144a615.png" width="603" height="327" class="img_ev3q"></p>
-<p>Lossless Scaling version 3.1.0.2 UI.
-Lossless Scaling version 3.1.0.2 UI.
-5. Restart PC.</p>
+<p><em>Lossless Scaling version 3.2 UI.</em></p>
+<ol start="5">
+<li>Restart PC.</li>
+</ol>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="notes-and-disclaimers">Notes and Disclaimers:<a href="#notes-and-disclaimers" class="hash-link" aria-label="Direct link to Notes and Disclaimers:" title="Direct link to Notes and Disclaimers:">​</a></h2>
 <ol>
 <li>Using an AMD GPU for rendering and Nvidia GPU as a secondary may result in games failing to launch. Similar issues have not occurred with the opposite setup as of 4/20/2025.</li>
