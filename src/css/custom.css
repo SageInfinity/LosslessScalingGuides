@@ -51,16 +51,24 @@ body::after {
   height: 100%;
   z-index: -1;
   background-color: rgb(86, 175, 255);
-}
+ }
 
 [data-theme='dark'] body::before {
   background-color: var(--docusaurus-bg-overlay-dark);
-  filter: blur(8px) brightness(1);
 }
 [data-theme='dark'] body::after {
   background-color: var(--docusaurus-bg-overlay-dark);
-  filter: blur(8px) brightness(1);
 }
+/*
+[data-theme='light'] body::before {
+ background: linear-gradient(
+  to bottom,
+    rgba(0, 0, 0, 0) 80%,    
+    rgba(0, 0, 0, 0.3) 95%,   
+    rgba(0, 0, 0, 0.4) 100% 
+ );
+}
+*/
 [data-theme='light'] body {
   --ifm-link-color: rgb(255, 255, 255);
   font-weight: 500;
@@ -74,9 +82,11 @@ body::after {
   z-index: 10001;
   font-family: 'pixel2';
 }
-.sidebar {
-  z-index: 10000 !important; /* Lower than navbar */
-  margin-top: var(--ifm-navbar-height); /* Push sidebar below navbar */
+[data-theme='light'] .navbar-sidebar {
+  background-color:rgba(255, 255, 255, 0.9);
+}
+[data-theme='dark'] .navbar-sidebar {
+  background-color:  rgba(0, 0, 0, 0.9);
 }
 /* Ensure content stays above background */
 .main-wrapper, .footer {
@@ -364,15 +374,6 @@ body::after {
   z-index: 1;
 }
 
-/* Author/source text */
-[data-theme='light'] blockquote footer,
-[data-theme='light'] blockquote cite {
-  color: #597ef7 !important; /* Medium blue */
-  font-style: italic;
-  font-size: 0.9rem;
-  display: block;
-  margin-top: 0.5rem;
-}
 
 /* Hover effect */
 [data-theme='light'] blockquote:hover {
