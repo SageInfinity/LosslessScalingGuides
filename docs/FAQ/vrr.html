@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-FAQ/vrr" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.8.1">
+<title data-rh="true">VRR- FreeSync/Gsync | Lossless Scaling Guides</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://sageinfinity.github.io/docs/FAQ/vrr"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="VRR- FreeSync/Gsync | Lossless Scaling Guides"><meta data-rh="true" name="description" content="Guides for settings for VRR"><meta data-rh="true" property="og:description" content="Guides for settings for VRR"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://sageinfinity.github.io/docs/FAQ/vrr"><link data-rh="true" rel="alternate" href="https://sageinfinity.github.io/docs/FAQ/vrr" hreflang="en"><link data-rh="true" rel="alternate" href="https://sageinfinity.github.io/docs/FAQ/vrr" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"VRR- FreeSync/Gsync","item":"https://sageinfinity.github.io/docs/FAQ/vrr"}]}</script><link rel="stylesheet" href="/assets/css/styles.0d0c2ecc.css">
+<script src="/assets/js/runtime~main.7933ce0a.js" defer="defer"></script>
+<script src="/assets/js/main.81a3271e.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t="dark";var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",e||t),document.documentElement.setAttribute("data-theme-choice",e||t)}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/favicon.ico"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/favicon.ico" alt="" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/favicon.ico" alt="" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">HOME</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" overflow="visible" href="/docs/Guides/videoguides">Video Guides</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" overflow="visible" href="/docs/Guides/start">Guides</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" overflow="visible" href="/docs/Guides/DualGPUGuide">DualGPU Guide</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" overflow="visible" href="/docs/FAQ/scalers">FAQ</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" overflow="visible" href="/docs/Graphs">Graphs</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://losslessscaling.com/" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link header-website-link" aria-label="Official Website"></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="main-content-wrapper"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/FAQ/scalers">FAQ</a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/FAQ/scalers">What are Spatial Scalers in LS?</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/FAQ/flowscale">What is Flow Scale?</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/FAQ/dxgiwgc">What is the difference between DXGI and WGC? What should I use?</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/FAQ/mpo">What is MPO?</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/FAQ/settings">Where are the LS settings &amp; profiles saved?</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/FAQ/config">What are the parameters of config.ini file for?</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/FAQ/vrr">VRR- FreeSync/Gsync</a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/Graphs">Graphs</a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/Guides/start">Guides</a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">FAQ</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">VRR- FreeSync/Gsync</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Guide to Setting Up G-Sync/FreeSync with V-Sync and LSFG</h1></header>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
+<ul>
+<li>Variable Refresh Rate (VRR) is a transformative display technology that synchronizes a monitor’s refresh rate with the graphics card’s frame rate, eliminating screen tearing and stuttering for a seamless gaming experience. Technologies like NVIDIA G-Sync and AMD FreeSync implement VRR, with G-Sync being a proprietary solution and FreeSync an open standard based on VESA Adaptive-Sync. This guide provides detailed steps to configure G-Sync/FreeSync with V-Sync, integrate Lossless Scaling Frame Generation (LSFG) for enhanced performance, and troubleshoot common issues.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="understanding-vrr-standards">Understanding VRR Standards<a href="#understanding-vrr-standards" class="hash-link" aria-label="Direct link to Understanding VRR Standards" title="Direct link to Understanding VRR Standards">​</a></h2>
+<ul>
+<li>VESA Adaptive-Sync: An open standard by the Video Electronics Standards Association (VESA), allowing monitors to adjust refresh rates dynamically. Compatible with both AMD and NVIDIA graphics cards.</li>
+<li>AMD FreeSync: AMD’s implementation of Adaptive-Sync, designed for AMD GPUs and FreeSync-compatible monitors. It’s cost-effective due to its open-source nature.</li>
+<li>NVIDIA G-Sync: NVIDIA’s proprietary VRR technology, requiring G-Sync-compatible monitors, often with a dedicated module. It offers optimized performance but at a higher cost.</li>
+<li>G-Sync Compatible: NVIDIA’s certification for Adaptive-Sync monitors that work with NVIDIA GPUs without a G-Sync module, offering a more affordable option.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="choosing-the-right-vrr-technology">Choosing the Right VRR Technology<a href="#choosing-the-right-vrr-technology" class="hash-link" aria-label="Direct link to Choosing the Right VRR Technology" title="Direct link to Choosing the Right VRR Technology">​</a></h2>
+<ul>
+<li>NVIDIA GPUs: Use G-Sync or G-Sync Compatible monitors.</li>
+<li>AMD GPUs: Use FreeSync monitors.</li>
+<li>Intel GPUs: Support Adaptive-Sync, compatible with VESA-certified monitors.</li>
+<li>Budget: FreeSync and Adaptive-Sync monitors are generally more affordable than G-Sync monitors.</li>
+<li>Performance: All VRR technologies reduce tearing and stuttering, but G-Sync may offer slight advantages in specific scenarios due to proprietary optimizations.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="checking-hardware-compatibility">Checking Hardware Compatibility<a href="#checking-hardware-compatibility" class="hash-link" aria-label="Direct link to Checking Hardware Compatibility" title="Direct link to Checking Hardware Compatibility">​</a></h2>
+<ul>
+<li>Before proceeding, verify:<!-- -->
+<ul>
+<li>Monitor: Supports G-Sync, FreeSync, or Adaptive-Sync (check specifications or use NVIDIA’s G-Sync validator or AMD’s FreeSync checker).</li>
+<li>Graphics Card: Supports G-Sync (NVIDIA), FreeSync (AMD), or Adaptive-Sync (Intel).</li>
+<li>Connection: Use DisplayPort 1.2+ or HDMI 2.1 for VRR support.</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="enabling-vrr">Enabling VRR<a href="#enabling-vrr" class="hash-link" aria-label="Direct link to Enabling VRR" title="Direct link to Enabling VRR">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="for-g-sync">For G-Sync:<a href="#for-g-sync" class="hash-link" aria-label="Direct link to For G-Sync:" title="Direct link to For G-Sync:">​</a></h3>
+<ul>
+<li>Open NVIDIA Control Panel.</li>
+<li>Navigate to &quot;Display&quot; &gt; &quot;Set up G-SYNC.&quot;</li>
+<li>Enable G-Sync for fullscreen or windowed modes. For G-Sync Compatible displays, tick &quot;Enable settings for the selected display model.&quot;</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="for-freesync">For FreeSync:<a href="#for-freesync" class="hash-link" aria-label="Direct link to For FreeSync:" title="Direct link to For FreeSync:">​</a></h3>
+<ul>
+<li>Open AMD Radeon Software.</li>
+<li>Go to &quot;Settings&quot; &gt; &quot;Display&quot; &gt; &quot;FreeSync.&quot;</li>
+<li>Enable FreeSync.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="steps">Steps:<a href="#steps" class="hash-link" aria-label="Direct link to Steps:" title="Direct link to Steps:">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="setting-up-g-syncfreesync-with-v-sync">Setting Up G-Sync/FreeSync with V-Sync<a href="#setting-up-g-syncfreesync-with-v-sync" class="hash-link" aria-label="Direct link to Setting Up G-Sync/FreeSync with V-Sync" title="Direct link to Setting Up G-Sync/FreeSync with V-Sync">​</a></h3>
+<p>V-Sync ensures G-Sync/FreeSync remains active by capping FPS, but it can introduce input lag. Capping FPS at 95% of the monitor’s refresh rate mitigates this.</p>
+<ul>
+<li>
+<p>Step 1: Enable G-Sync/FreeSync</p>
+<p>Follow the steps above to enable G-Sync or FreeSync in your graphics card control panel.</p>
+</li>
+<li>
+<p>Step 2: FPS Capping</p>
+</li>
+</ul>
+<p>The final FPS (after LSFG) should be adjusted to reach approximately 95% (Or use the formula mentioned below) of your monitor’s refresh rate to keep VRR active and minimize input lag.</p>
+<p>Examples:</p>
+<ul>
+<li>120 Hz monitor: 114 FPS (120 × 0.95 = 114)</li>
+<li>144 Hz monitor: 137 FPS (144 × 0.95 = 136.8, rounded to 137)</li>
+<li>165 Hz monitor: 157 FPS (165 × 0.95 = 156.75, rounded to 157)</li>
+<li>180 Hz monitor: 171 FPS (180 × 0.95 = 171)</li>
+<li>240 Hz monitor: 228 FPS (240 × 0.95 = 228)</li>
+</ul>
+<blockquote>
+<p>The correct formula for max fps = R - (R * R/3600) ; For user&#x27;s ease, 95% value is cited in this guide. You can use the R - (R * R/3600) formula, where R = Refresh Rate of your monitor.</p>
+</blockquote>
+<p>Use Riva Tuner Statistics Server (RTSS) for precise FPS capping. Refer to : <a href="/docs/FAQ/&quot;https://sageinfinity.github.io/docs/Guides/rtss&quot;">RTSS - FPS Capping Guide</a>. In RTSS, right-click the framerate limit area to set a &quot;variable refresh rate cap&quot; (VRR cap).
+Alternatively, use NVIDIA or AMD driver FPS limiters, though they may be less precise. Test different limiters, as effectiveness varies by game.</p>
+<ul>
+<li>Step 3: Enable V-Sync</li>
+</ul>
+<p>Enable V-Sync via the graphics card control panel (NVIDIA Control Panel or AMD Radeon Software).
+Ingame VSync gives the maximum latency so, it is advised to turn it off in game and OFF in LS for minimum latency. Only turn it on for particular game engines issues and/or emulators.</p>
+<ul>
+<li>Step 4: Set Base FPS for LSFG</li>
+</ul>
+<p>Divide the VRR cap by the frame generation multiplier (x2 or x3) to determine the base FPS.</p>
+<p>Examples:</p>
+<ul>
+<li>For x2 frame generation on a 120 Hz monitor: 114 / 2 = 57 FPS</li>
+<li>For x3 frame generation on a 120 Hz monitor: 114 / 3 = 38 FPS</li>
+<li>For x2 frame generation on a 144 Hz monitor: 137 / 2 = 68.5 FPS (round to 68)</li>
+<li>For x3 frame generation on a 144 Hz monitor: 137 / 3 = 45.67 FPS (round to 45)</li>
+</ul>
+<blockquote>
+<p>Decimal Multipliers can also be used.</p>
+</blockquote>
+<blockquote>
+<p><em>These are maximum FPS limits to avoid V-Sync input lag. Lower values can be used if needed.</em></p>
+</blockquote>
+<ul>
+<li>Step 5: Configure Lossless Scaling</li>
+</ul>
+<p>In Lossless Scaling settings, select &quot;Default Sync&quot; or &quot;V-Sync&quot; as the sync method.
+If V-Sync is enabled in GPU drivers, use &quot;off (allow tearing)&quot; in Lossless Scaling to avoid interference. &quot;Default sync&quot; is generally advised for better compatibility.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="fps-limiting-with-off-allow-tearing-in-lossless-scaling">FPS Limiting with &quot;Off (allow tearing)&quot; in Lossless Scaling<a href="#fps-limiting-with-off-allow-tearing-in-lossless-scaling" class="hash-link" aria-label="Direct link to FPS Limiting with &quot;Off (allow tearing)&quot; in Lossless Scaling" title="Direct link to FPS Limiting with &quot;Off (allow tearing)&quot; in Lossless Scaling">​</a></h3>
+<p>Using the &quot;Off (allow tearing)&quot; sync option in Lossless Scaling allows higher base FPS caps without V-Sync input lag but risks tearing if FPS exceeds the monitor’s refresh rate.</p>
+<ul>
+<li>Advantages: Higher FPS caps with reduced input lag.</li>
+<li>Caution: G-Sync/FreeSync only works within the monitor’s refresh rate range. Cap FPS 3-4 below the refresh rate to minimize tearing risks.</li>
+<li>Examples:<!-- -->
+<ul>
+<li>For a 120 Hz monitor:<!-- -->
+<ul>
+<li>Base FPS cap of 58 FPS with x2 frame generation (58 × 2 = 116 FPS)</li>
+<li>Base FPS cap of 39 FPS with x3 frame generation (39 × 3 = 117 FPS)</li>
+</ul>
+</li>
+<li>For a 144 Hz monitor:<!-- -->
+<ul>
+<li>Base FPS cap of 70 FPS with x2 frame generation (70 × 2 = 140 FPS)</li>
+<li>Base FPS cap of 47 FPS with x3 frame generation (47 × 3 = 141 FPS)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>The best cap would still be the final max fps to reach the value R - (R * R)/3600 for all the displays, where R is refresh rate.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="additional-tips-for-optimal-performance">Additional Tips for Optimal Performance<a href="#additional-tips-for-optimal-performance" class="hash-link" aria-label="Direct link to Additional Tips for Optimal Performance" title="Direct link to Additional Tips for Optimal Performance">​</a></h2>
+<ul>
+<li>Monitor Calibration: Calibrate your monitor for optimal visuals, especially with LSFG, as frame generation can affect image quality.</li>
+<li>GPU Load Management: Keep GPU load below 90% when using LSFG to avoid stuttering and input lag. Adjust base FPS accordingly.</li>
+<li>Experiment with FPS Limiters: Test RTSS, NVIDIA, or AMD limiters, as performance varies by game.</li>
+<li>Troubleshooting VRR:<!-- -->
+<ul>
+<li>Verify monitor and GPU compatibility.</li>
+<li>Update graphics drivers to the latest version.</li>
+<li>Ensure VRR is enabled in both the control panel and monitor settings.</li>
+<li>Use a high-quality DisplayPort 1.2+ or HDMI 2.1 cable.</li>
+<li>Check for conflicts between in-game and driver V-Sync settings.</li>
+</ul>
+</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/FAQ/config"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">What are the parameters of config.ini file for?</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/Graphs"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Graphs</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#introduction" class="table-of-contents__link toc-highlight">Introduction</a></li><li><a href="#understanding-vrr-standards" class="table-of-contents__link toc-highlight">Understanding VRR Standards</a></li><li><a href="#choosing-the-right-vrr-technology" class="table-of-contents__link toc-highlight">Choosing the Right VRR Technology</a></li><li><a href="#checking-hardware-compatibility" class="table-of-contents__link toc-highlight">Checking Hardware Compatibility</a></li><li><a href="#enabling-vrr" class="table-of-contents__link toc-highlight">Enabling VRR</a><ul><li><a href="#for-g-sync" class="table-of-contents__link toc-highlight">For G-Sync:</a></li><li><a href="#for-freesync" class="table-of-contents__link toc-highlight">For FreeSync:</a></li></ul></li><li><a href="#steps" class="table-of-contents__link toc-highlight">Steps:</a><ul><li><a href="#setting-up-g-syncfreesync-with-v-sync" class="table-of-contents__link toc-highlight">Setting Up G-Sync/FreeSync with V-Sync</a></li><li><a href="#fps-limiting-with-off-allow-tearing-in-lossless-scaling" class="table-of-contents__link toc-highlight">FPS Limiting with &quot;Off (allow tearing)&quot; in Lossless Scaling</a></li></ul></li><li><a href="#additional-tips-for-optimal-performance" class="table-of-contents__link toc-highlight">Additional Tips for Optimal Performance</a></li></ul></div></div></div></div></main></div></div></div></div><footer class="theme-layout-footer footer"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.reddit.com/r/losslessscaling/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Offical Reddit<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://discord.gg/tuwuNF3xSA" target="_blank" rel="noopener noreferrer" class="footer__link-item">Offical Discord<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://steamcommunity.com/app/993090/discussions/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Official Steam Community<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div></div></footer></div>
+</body>
+</html>
