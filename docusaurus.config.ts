@@ -24,13 +24,13 @@ const config: Config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   //organizationName: 'facebook', // Usually your GitHub org/user name.
-  // projectName: 'sageinfinity.github.io',
-  // organizationName: 'sageinfinity',
-  // deploymentBranch: 'deploy',
+   projectName: 'sageinfinity.github.io',
+   organizationName: 'sageinfinity',
+   deploymentBranch: 'deploy',
   
-  projectName: 'LS-Guide',
-  organizationName: 'Jorban-MartysMods',
-  deploymentBranch: 'Sage',
+  // projectName: 'LS-Guide',
+  // organizationName: 'Jorban-MartysMods',
+  // deploymentBranch: 'Sage',
   
   
   
