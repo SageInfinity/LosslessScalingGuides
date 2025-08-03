@@ -16,7 +16,9 @@ id: graphs
 
 ![alt-text](img/g6.png)
 
-![alt-text](img/g7.png)
+![alt-text](img/g17.png)
+
+![alt-text](img/g.png)
 
 ![alt-text](img/g8.png)
 
