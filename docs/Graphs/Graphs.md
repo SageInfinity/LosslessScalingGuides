@@ -4,6 +4,10 @@ description : Collection of Graphs for Lossless Scaling
 id: graphs
 ---
 
+![alt-text](img/g19.png)
+
+![alt-text](img/g18.png)
+
 ![alt-text](img/g1.png)
 
 ![alt-text](img/g2.png)
