@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.8.1">
 <title data-rh="true">Official Dual GPU Guide/Overview | Lossless Scaling Guides</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://sageinfinity.github.io/docs/Guides/DualGPUGuide"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Official Dual GPU Guide/Overview | Lossless Scaling Guides"><meta data-rh="true" name="description" content="Step by step guide for requirements, setup, and some tips for offloading LSFG (Lossless Scaling Frame Generation) to secondary GPU on windows."><meta data-rh="true" property="og:description" content="Step by step guide for requirements, setup, and some tips for offloading LSFG (Lossless Scaling Frame Generation) to secondary GPU on windows."><meta data-rh="true" name="keywords" content="Lossless Scaling,LSFG,Dual GPU LSFG,Dual GPU"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://sageinfinity.github.io/docs/Guides/DualGPUGuide"><link data-rh="true" rel="alternate" href="https://sageinfinity.github.io/docs/Guides/DualGPUGuide" hreflang="en"><link data-rh="true" rel="alternate" href="https://sageinfinity.github.io/docs/Guides/DualGPUGuide" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Official Dual GPU Guide/Overview","item":"https://sageinfinity.github.io/docs/Guides/DualGPUGuide"}]}</script><link rel="stylesheet" href="/assets/css/styles.0d0c2ecc.css">
-<script src="/assets/js/runtime~main.1d17a420.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.ed04a317.js" defer="defer"></script>
 <script src="/assets/js/main.f05f9210.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -34,6 +34,7 @@
 <p><img decoding="async" loading="lazy" alt="alt-text" src="/assets/images/d2-ceec7d71d5be2df07e123a70a22db307.png" width="2245" height="1824" class="img_ev3q">
 <em>Chart and data by u/CptTombstone, collected with an OSLTT. Both versions of LSFG are using X4 frame generation. Reflex and G-sync are on for all tests, and the base
 framerate is capped to 60fps. Uncapped base FPS scenarios show even more drastic differences.</em></p>
+<hr>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="how-the-dual-gpu-setup-works">How the Dual GPU setup works:<a href="#how-the-dual-gpu-setup-works" class="hash-link" aria-label="Direct link to How the Dual GPU setup works:" title="Direct link to How the Dual GPU setup works:">​</a></h2>
 <ul>
 <li>Real frames (assuming no in-game FG is used) are rendered by the render GPU.</li>
@@ -41,13 +42,78 @@ framerate is capped to 60fps. Uncapped base FPS scenarios show even more drastic
 <li>Real frames are processed by Lossless Scaling, and the secondary GPU renders generated frames.</li>
 <li>The final video is outputted to the display from the secondary GPU. If the display is connected to the render GPU, the final video (including generated frames) has to copy back to it, heavily loading PCIe bandwidth and GPU memory controllers. Hence, step 2 in Guide.</li>
 </ul>
+<hr>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="system-requirements">System requirements<a href="#system-requirements" class="hash-link" aria-label="Direct link to System requirements" title="Direct link to System requirements">​</a></h2>
 <blockquote>
 <p>(points 1-4 apply to desktops only):</p>
 </blockquote>
 <ol>
-<li>Windows 11 has new options in the windows settings. Windows 10 requires registry editing to get games to run on the render GPU and may have unexpected behavior.</li>
+<li>Windows 11 has new options in the windows settings. Windows 10 requires registry editing to get games to run on the render GPU and may have unexpected behavior. Read the end of this guide for the steps for windows 10.</li>
+<li>A motherboard that supports good enough PCIe bandwidth for two GPUs. The limitation is the slowest slot of the two that GPUs are connected to. Find expansion slot information in your motherboard&#x27;s user manual. Here&#x27;s what we know different PCIe specs can handle:</li>
+<li>PCIe requirements:</li>
 </ol>
+<ul>
+<li>Anything below PCIe 3.0 x4: GPU may not work properly, not recommended for any use case.</li>
+<li>PCIe 3.0 x4 or similar: Good for 1080p 360fps, 1440p 230fps and 4k 60fps (4k not recommended)</li>
+<li>PCIe 4.0 x4 or similar: Good for 1080p 540fps, 1440p 320fps and 4k 165fps</li>
+<li>PCIe 4.0 x8 or similar: Good for 1080p (a lot)fps, 1440p 480fps and 4k 240fps</li>
+</ul>
+<blockquote>
+<p>These values are accounted for HDR, overheads and having enough bandwidth for the secondary GPU to perform well. Reaching higher framerates is possible, but these guarantee a good experience.</p>
+</blockquote>
+<ol start="4">
+<li>This is very important. Be completely sure that both slots support enough lanes, even if they are physically x16 slots. A spare x4 NVMe slot and adapter can be used, though it is often difficult and expensive to get working. Note that Intel Arc cards may not function properly for this if given less than 8 physical PCIe lanes (Multiple Arc GPUs tested have worked in 3.0 x8 but not in 4.0 x4, although they have the same bandwidth).</li>
+<li>If you&#x27;re researching motherboards:</li>
+</ol>
+<ul>
+<li><a href="https://docs.google.com/document/d/e/2PACX-1vQx7SM9-SU_YdCxXNgVGcNFLLHL5mrWzliRvq4Gi4wytsbh2HCsc9AaCEFrx8Lao5-ttHoDYKM8A7UE/pub" target="_blank" rel="noopener noreferrer">Tommy&#x27;s List</a></li>
+<li>For more detailed information on AMD motherboards, I recommend u/3_Three_3&#x27;s motherboard spreadsheets:</li>
+<li><a href="https://docs.google.com/spreadsheets/d/1NQHkDEcgDPm34Mns3C93K6SJoBnua-x9O-y_6hv8sPs/edit?gid=2064683589#gid=2064683589" target="_blank" rel="noopener noreferrer">AM5-Motherboards</a></li>
+</ul>
+<ol start="6">
+<li>Both GPUs need to fit.</li>
+<li>The power supply unit needs to be sufficient.</li>
+<li>A good enough 2nd GPU. If it can&#x27;t keep up and generate enough frames, it will bottleneck your system to the framerate it can keep up to.</li>
+<li>Higher resolutions and more demanding LS settings require a more powerful 2nd GPU.</li>
+<li>The maximum final generated framerate various GPUs can reach at different resolutions with X2 LSFG is documented here: Secondary GPU Max LSFG Capability Chart. Higher multipliers enable higher capabilities due to taking less compute per frame.</li>
+<li>Unless other demanding tasks are being run on the secondary GPU, it is unlikely that over 4GB of VRAM is necessary unless above 4k resolution.</li>
+<li>On laptops, iGPU performance can vary drastically per laptop vendor due to TDP, RAM configuration, and other factors. Relatively powerful iGPUs like the Radeon 780m are recommended for resolutions above 1080p with high refresh rates.</li>
+</ol>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-guide">The Guide:<a href="#the-guide" class="hash-link" aria-label="Direct link to The Guide:" title="Direct link to The Guide:">​</a></h2>
+<ol>
+<li>Install drivers for both GPUs. If each are of the same brand, they use the same drivers. If each are of different brands, you&#x27;ll need to seperately install drivers for both.</li>
+<li>Connect your display to your secondary GPU, not your rendering GPU. Otherwise, a large performance hit will occur. On a desktop, this means connecting the display to the motherboard if using the iGPU. This is explained in How it works/4.</li>
+</ol>
+<p><img decoding="async" loading="lazy" alt="alt-text" src="/assets/images/d3-6699d774a9606ced6f178e3b6120f791.png" width="1255" height="441" class="img_ev3q">
+<em>Bottom GPU is render 4060ti 16GB, top GPU is secondary Arc B570, on x8/x8 configuration</em></p>
+<ol start="3">
+<li>Ensure your rendering GPU is set in System -&gt; Display -&gt; Graphics -&gt; Default graphics settings.</li>
+</ol>
+<p><img decoding="async" loading="lazy" alt="alt-text" src="/assets/images/d4-036d405a857b511a402003fb062744b3.png" width="1394" height="177" class="img_ev3q">
+<em>This setting is on Windows 11 only. On Windows 10, a registry edit needs to be done, as mentioned in System Requirements.</em></p>
+<ol start="4">
+<li>Set the Preferred GPU in Lossless Scaling settings -&gt; GPU &amp; Display to your secondary GPU.</li>
+</ol>
+<p><img decoding="async" loading="lazy" alt="alt-text" src="/assets/images/d5-ec34259ebd6141537a89a71a6144a615.png" width="603" height="327" class="img_ev3q"></p>
+<p><em>Lossless Scaling version 3.2 UI.</em></p>
+<ol start="5">
+<li>Restart PC.</li>
+</ol>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="notes-and-disclaimers">Notes and Disclaimers:<a href="#notes-and-disclaimers" class="hash-link" aria-label="Direct link to Notes and Disclaimers:" title="Direct link to Notes and Disclaimers:">​</a></h2>
+<ol>
+<li>Using an AMD GPU for rendering and Nvidia GPU as a secondary may result in games failing to launch. Similar issues have not occurred with the opposite setup as of 4/20/2025.</li>
+<li>Overall, most Intel and AMD GPUs are better than their Nvidia counterparts in LSFG capability, often by a wide margin. This is due to them having more fp16 compute and architectures generally more suitable for LSFG. However, there are some important things to consider:</li>
+<li>When mixing GPU brands, features of the render GPU that rely on display output no longer function due to the need for video to be outputted through the secondary GPU. For example, when using an AMD or Intel secondary GPU and Nvidia render GPU, Nvidia features like RTX HDR and DLDSR don&#x27;t function and are replaced by counterpart features of the secondary GPU&#x27;s brand, if it has them.</li>
+<li>Outputting video from a secondary GPU usually doesn&#x27;t affect in-game features like DLSS upscaling and frame generation. The only confirmed case of in-game features being affected by outputting video from a secondary GPU is in No Man&#x27;s Sky, as it may lose HDR support if doing so.</li>
+<li>Getting the game to run on the desired render GPU is usually simple (Step 3 in Guide), but not always. Games that use the OpenGL graphics API such as Minecraft Java or Geometry Dash aren&#x27;t affected by the Windows setting, often resulting in them running on the wrong GPU. The only way to change this is with the &quot;OpenGL Rendering GPU&quot; setting in Nvidia Control Panel, which doesn&#x27;t always work, and can only be changed if both the render and secondary GPU are Nvidia.</li>
+<li>The only known potential solutions beyond this are changing the rendering API if possible and disabling the secondary GPU in Device Manager when launching the game (which requires swapping the display cable back and forth between GPUs).</li>
+<li>Additionally, some games/emulators (usually those with the Vulkan graphics API) such as Cemu and game engines require selecting the desired render GPU in their settings.</li>
+<li>Using multiple large GPUs (~2.5 slot and above) can damage your motherboard if not supported properly. Use a support bracket and/or GPU riser if you&#x27;re concerned about this. Prioritize smaller secondary GPUs over bigger ones.</li>
+<li>Copying video between GPUs may impact CPU headroom. With my Ryzen 9 3900x, I see roughly a 5%-15% impact on framerate in all-core CPU bottlenecked and 1%-3% impact in partial-core CPU bottlenecked scenarios from outputting video from my secondary Arc B570. As of 4/7/2025, this hasn&#x27;t been tested extensively and may vary based on the secondary GPU, CPU, and game.</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="windows-10---registry-key-for-selecting-high-performance-gpu">Windows 10 - Registry Key for selecting high performance GPU<a href="#windows-10---registry-key-for-selecting-high-performance-gpu" class="hash-link" aria-label="Direct link to Windows 10 - Registry Key for selecting high performance GPU" title="Direct link to Windows 10 - Registry Key for selecting high performance GPU">​</a></h3>
 <ul>
 <li>
 <p>Open Registry Editor:</p>
@@ -93,69 +159,6 @@ the power save GPU</li>
 <li>
 <p><em>Source : <a href="https://www.reddit.com/r/AMDHelp/comments/18fr7j3/configuring_power_saving_and_high_performance/" target="_blank" rel="noopener noreferrer">Win10-Registry for selecting High Perf GPU </a></em></p>
 </li>
-</ul>
-<ol start="2">
-<li>A motherboard that supports good enough PCIe bandwidth for two GPUs. The limitation is the slowest slot of the two that GPUs are connected to. Find expansion slot information in your motherboard&#x27;s user manual. Here&#x27;s what we know different PCIe specs can handle:</li>
-<li>PCIe requirements:</li>
-</ol>
-<ul>
-<li>Anything below PCIe 3.0 x4: GPU may not work properly, not recommended for any use case.</li>
-<li>PCIe 3.0 x4 or similar: Good for 1080p 360fps, 1440p 230fps and 4k 60fps (4k not recommended)</li>
-<li>PCIe 4.0 x4 or similar: Good for 1080p 540fps, 1440p 320fps and 4k 165fps</li>
-<li>PCIe 4.0 x8 or similar: Good for 1080p (a lot)fps, 1440p 480fps and 4k 240fps</li>
-</ul>
-<blockquote>
-<p>These values are accounted for HDR, overheads and having enough bandwidth for the secondary GPU to perform well. Reaching higher framerates is possible, but these guarantee a good experience.</p>
-</blockquote>
-<ol start="4">
-<li>This is very important. Be completely sure that both slots support enough lanes, even if they are physically x16 slots. A spare x4 NVMe slot and adapter can be used, though it is often difficult and expensive to get working. Note that Intel Arc cards may not function properly for this if given less than 8 physical PCIe lanes (Multiple Arc GPUs tested have worked in 3.0 x8 but not in 4.0 x4, although they have the same bandwidth).</li>
-<li>If you&#x27;re researching motherboards:</li>
-</ol>
-<ul>
-<li><a href="https://docs.google.com/document/d/e/2PACX-1vQx7SM9-SU_YdCxXNgVGcNFLLHL5mrWzliRvq4Gi4wytsbh2HCsc9AaCEFrx8Lao5-ttHoDYKM8A7UE/pub" target="_blank" rel="noopener noreferrer">Tommy&#x27;s List</a></li>
-<li>For more detailed information on AMD motherboards, I recommend u/3_Three_3&#x27;s motherboard spreadsheets:</li>
-<li><a href="https://docs.google.com/spreadsheets/d/1NQHkDEcgDPm34Mns3C93K6SJoBnua-x9O-y_6hv8sPs/edit?gid=2064683589#gid=2064683589" target="_blank" rel="noopener noreferrer">AM5-Motherboards</a></li>
-</ul>
-<ol start="6">
-<li>Both GPUs need to fit.</li>
-<li>The power supply unit needs to be sufficient.</li>
-<li>A good enough 2nd GPU. If it can&#x27;t keep up and generate enough frames, it will bottleneck your system to the framerate it can keep up to.</li>
-<li>Higher resolutions and more demanding LS settings require a more powerful 2nd GPU.</li>
-<li>The maximum final generated framerate various GPUs can reach at different resolutions with X2 LSFG is documented here: Secondary GPU Max LSFG Capability Chart. Higher multipliers enable higher capabilities due to taking less compute per frame.</li>
-<li>Unless other demanding tasks are being run on the secondary GPU, it is unlikely that over 4GB of VRAM is necessary unless above 4k resolution.</li>
-<li>On laptops, iGPU performance can vary drastically per laptop vendor due to TDP, RAM configuration, and other factors. Relatively powerful iGPUs like the Radeon 780m are recommended for resolutions above 1080p with high refresh rates.</li>
-</ol>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-guide">The Guide:<a href="#the-guide" class="hash-link" aria-label="Direct link to The Guide:" title="Direct link to The Guide:">​</a></h2>
-<ol>
-<li>Install drivers for both GPUs. If each are of the same brand, they use the same drivers. If each are of different brands, you&#x27;ll need to seperately install drivers for both.</li>
-<li>Connect your display to your secondary GPU, not your rendering GPU. Otherwise, a large performance hit will occur. On a desktop, this means connecting the display to the motherboard if using the iGPU. This is explained in How it works/4.</li>
-</ol>
-<p><img decoding="async" loading="lazy" alt="alt-text" src="/assets/images/d3-6699d774a9606ced6f178e3b6120f791.png" width="1255" height="441" class="img_ev3q">
-<em>Bottom GPU is render 4060ti 16GB, top GPU is secondary Arc B570, on x8/x8 configuration</em></p>
-<ol start="3">
-<li>Ensure your rendering GPU is set in System -&gt; Display -&gt; Graphics -&gt; Default graphics settings.</li>
-</ol>
-<p><img decoding="async" loading="lazy" alt="alt-text" src="/assets/images/d4-036d405a857b511a402003fb062744b3.png" width="1394" height="177" class="img_ev3q">
-<em>This setting is on Windows 11 only. On Windows 10, a registry edit needs to be done, as mentioned in System Requirements.</em></p>
-<ol start="4">
-<li>Set the Preferred GPU in Lossless Scaling settings -&gt; GPU &amp; Display to your secondary GPU.</li>
-</ol>
-<p><img decoding="async" loading="lazy" alt="alt-text" src="/assets/images/d5-ec34259ebd6141537a89a71a6144a615.png" width="603" height="327" class="img_ev3q"></p>
-<p><em>Lossless Scaling version 3.2 UI.</em></p>
-<ol start="5">
-<li>Restart PC.</li>
-</ol>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="notes-and-disclaimers">Notes and Disclaimers:<a href="#notes-and-disclaimers" class="hash-link" aria-label="Direct link to Notes and Disclaimers:" title="Direct link to Notes and Disclaimers:">​</a></h2>
-<ol>
-<li>Using an AMD GPU for rendering and Nvidia GPU as a secondary may result in games failing to launch. Similar issues have not occurred with the opposite setup as of 4/20/2025.</li>
-<li>Overall, most Intel and AMD GPUs are better than their Nvidia counterparts in LSFG capability, often by a wide margin. This is due to them having more fp16 compute and architectures generally more suitable for LSFG. However, there are some important things to consider:</li>
-<li>When mixing GPU brands, features of the render GPU that rely on display output no longer function due to the need for video to be outputted through the secondary GPU. For example, when using an AMD or Intel secondary GPU and Nvidia render GPU, Nvidia features like RTX HDR and DLDSR don&#x27;t function and are replaced by counterpart features of the secondary GPU&#x27;s brand, if it has them.</li>
-<li>Outputting video from a secondary GPU usually doesn&#x27;t affect in-game features like DLSS upscaling and frame generation. The only confirmed case of in-game features being affected by outputting video from a secondary GPU is in No Man&#x27;s Sky, as it may lose HDR support if doing so.</li>
-<li>Getting the game to run on the desired render GPU is usually simple (Step 3 in Guide), but not always. Games that use the OpenGL graphics API such as Minecraft Java or Geometry Dash aren&#x27;t affected by the Windows setting, often resulting in them running on the wrong GPU. The only way to change this is with the &quot;OpenGL Rendering GPU&quot; setting in Nvidia Control Panel, which doesn&#x27;t always work, and can only be changed if both the render and secondary GPU are Nvidia.</li>
-<li>The only known potential solutions beyond this are changing the rendering API if possible and disabling the secondary GPU in Device Manager when launching the game (which requires swapping the display cable back and forth between GPUs).</li>
-<li>Additionally, some games/emulators (usually those with the Vulkan graphics API) such as Cemu and game engines require selecting the desired render GPU in their settings.</li>
-<li>Using multiple large GPUs (~2.5 slot and above) can damage your motherboard if not supported properly. Use a support bracket and/or GPU riser if you&#x27;re concerned about this. Prioritize smaller secondary GPUs over bigger ones.</li>
-<li>Copying video between GPUs may impact CPU headroom. With my Ryzen 9 3900x, I see roughly a 5%-15% impact on framerate in all-core CPU bottlenecked and 1%-3% impact in partial-core CPU bottlenecked scenarios from outputting video from my secondary Arc B570. As of 4/7/2025, this hasn&#x27;t been tested extensively and may vary based on the secondary GPU, CPU, and game.</li>
-</ol></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/Guides/autolaunch"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Auto Launch LS to Tray</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/Guides/dualgputroubleshoot"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Dual GPU Troubleshooting</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#what-is-a-dual-gpu-setup-for-lossless-scaling" class="table-of-contents__link toc-highlight">What is a Dual GPU setup for Lossless Scaling?</a></li><li><a href="#how-the-dual-gpu-setup-works" class="table-of-contents__link toc-highlight">How the Dual GPU setup works:</a></li><li><a href="#system-requirements" class="table-of-contents__link toc-highlight">System requirements</a></li><li><a href="#the-guide" class="table-of-contents__link toc-highlight">The Guide:</a></li><li><a href="#notes-and-disclaimers" class="table-of-contents__link toc-highlight">Notes and Disclaimers:</a></li></ul></div></div></div></div></main></div></div></div></div><footer class="theme-layout-footer footer"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.reddit.com/r/losslessscaling/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Offical Reddit<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://discord.gg/tuwuNF3xSA" target="_blank" rel="noopener noreferrer" class="footer__link-item">Offical Discord<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://steamcommunity.com/app/993090/discussions/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Official Steam Community<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div></div></footer></div>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/Guides/autolaunch"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Auto Launch LS to Tray</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/Guides/dualgputroubleshoot"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Dual GPU Troubleshooting</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#what-is-a-dual-gpu-setup-for-lossless-scaling" class="table-of-contents__link toc-highlight">What is a Dual GPU setup for Lossless Scaling?</a></li><li><a href="#how-the-dual-gpu-setup-works" class="table-of-contents__link toc-highlight">How the Dual GPU setup works:</a></li><li><a href="#system-requirements" class="table-of-contents__link toc-highlight">System requirements</a></li><li><a href="#the-guide" class="table-of-contents__link toc-highlight">The Guide:</a></li><li><a href="#notes-and-disclaimers" class="table-of-contents__link toc-highlight">Notes and Disclaimers:</a><ul><li><a href="#windows-10---registry-key-for-selecting-high-performance-gpu" class="table-of-contents__link toc-highlight">Windows 10 - Registry Key for selecting high performance GPU</a></li></ul></li></ul></div></div></div></div></main></div></div></div></div><footer class="theme-layout-footer footer"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.reddit.com/r/losslessscaling/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Offical Reddit<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://discord.gg/tuwuNF3xSA" target="_blank" rel="noopener noreferrer" class="footer__link-item">Offical Discord<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://steamcommunity.com/app/993090/discussions/" target="_blank" rel="noopener noreferrer" class="footer__link-item">Official Steam Community<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div></div></footer></div>
 </body>
 </html>
