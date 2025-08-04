@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.8.1">
 <title data-rh="true">LS settings Info | Lossless Scaling Guides</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://sageinfinity.github.io/docs/Guides/LS settings Info"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="LS settings Info | Lossless Scaling Guides"><meta data-rh="true" name="description" content="This is brief info about Settings in Lossless Scaling"><meta data-rh="true" property="og:description" content="This is brief info about Settings in Lossless Scaling"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://sageinfinity.github.io/docs/Guides/LS settings Info"><link data-rh="true" rel="alternate" href="https://sageinfinity.github.io/docs/Guides/LS settings Info" hreflang="en"><link data-rh="true" rel="alternate" href="https://sageinfinity.github.io/docs/Guides/LS settings Info" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LS settings Info","item":"https://sageinfinity.github.io/docs/Guides/LS settings Info"}]}</script><link rel="stylesheet" href="/assets/css/styles.0d0c2ecc.css">
-<script src="/assets/js/runtime~main.f316b2d2.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.139c6789.js" defer="defer"></script>
 <script src="/assets/js/main.f05f9210.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -123,6 +123,21 @@
 <li>The lowest latency is at 10, but this causes higher VRAM usage and may crash in some scenarios. The latency range is ~0.5ms in non-bottlenecked situations.</li>
 <li>Higher MFL value doesn&#x27;t mean lower latency. It is only true for the value 10, and would slightly increase when you either reduce it or increase it. The default of 3 is generally good enough for most cases.</li>
 <li>MFL 10 is more relevant in dual GPU setups</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="explanation-for-mfl-">Explanation for MFL :<a href="#explanation-for-mfl-" class="hash-link" aria-label="Direct link to Explanation for MFL :" title="Direct link to Explanation for MFL :">​</a></h4>
+<ul>
+<li>
+<p>The Render Queue Depth (MFL) controls how many frames the GPU can buffer ahead of the CPU. But the application (LS) itself doesn&#x27;t read and react to your HID inputs (mouse, keyboard, controller) in its main loop. Thus, MFL has no direct effect on input latency. Buffering more frames (higher MFL) or fewer frames (lower MFL) doesn&#x27;t change when your input gets sampled relative to the displayed frame, because the LS app itself isn&#x27;t doing the sampling.</p>
+</li>
+<li>
+<p>However, low MFL value forces the CPU and GPU to synchronize more frequently. This can increase CPU overhead, potentially causing frame rate drops or stutter if the CPU is overwhelmed. This stutter feels like latency. While high MFL value allows more frames to be pre-rendered. This can increase VRAM usage as more textures/data for future frames need to be held. If VRAM is exhausted, performance tanks (stutter, frame drops), again feeling like increased latency.</p>
+</li>
+<li>
+<p>MFL only delays your input if the corresponding program (for instance a game) is actively polling your input. LS isn&#x27;t doing so, and buffering its frames doesn&#x27;t delay your inputs to the game. Games are listening, so buffering their frames does delay your inputs.</p>
+</li>
+<li>
+<p>Hence, setting it too low or too high can cause performance issues that indirectly degrade the experience.</p>
+</li>
 </ul>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="hdr-support">HDR Support<a href="#hdr-support" class="hash-link" aria-label="Direct link to HDR Support" title="Direct link to HDR Support">​</a></h3>
 <ul>
