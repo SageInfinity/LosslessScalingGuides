@@ -119,11 +119,11 @@ const config: Config = {
           title: 'Community',
           items: [
             {
-              label: 'Offical Reddit',
+              label: 'Official Reddit',
               href: 'https://www.reddit.com/r/losslessscaling/',
             },
             {
-              label: 'Offical Discord',
+              label: 'Official Discord',
               href: 'https://discord.gg/tuwuNF3xSA',
             },
             {
